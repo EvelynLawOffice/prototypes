@@ -6,11 +6,7 @@ import { setupCounter } from './counter.js'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-AOS.init({
-  once: true,       // only animate once per element
-  duration: 800,    // animation duration
-  easing: 'ease-in-out'
-})
+AOS.init()
 
 document.querySelector('#app').innerHTML = `
   <div>
