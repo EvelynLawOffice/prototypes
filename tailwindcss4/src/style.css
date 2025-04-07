@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather&family=Open+Sans&family=Space+Grotesk:wght@500&display=swap');
 @import "tailwindcss";
 
-:root {
+
+@theme {
+  --font-roboto: "Roboto", sans-serif; 
+  --font-alumni: "Alumni Sans Pinstripe", sans-serif;
+  --font-assistant: "Assistant", sans-serif;
+
+  --color-light-pink: #f6c2bf;
+  --color-ember: #322c33;
+  --color-midnight: #181920;
+  --color-off-white: #f8faf9;
+  }
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -95,4 +109,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
