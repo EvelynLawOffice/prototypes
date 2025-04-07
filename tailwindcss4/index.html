@@ -79,7 +79,7 @@
   </div>
 </nav>
 
-    <section class="relative overflow-hidden min-h-screen px-6">
+    <section class="relative overflow-hidden min-h-[60vh] md:min-h-screen px-6">
       <!-- Background logo (optional) -->
       <img
         src="src/img/symbol-black.png"
@@ -109,9 +109,15 @@
 
 
     <!-- Practice Areas -->
-    <section class="relative z-10 px-6 py-16 md:px-20 bg-[#fef0f0] text-[#1f1f1f]">
-      <div class="max-w-7xl mx-auto text-center mb-14">
-        <h2 class="text-3xl md:text-4xl font-assistant font-bold text-midnight tracking-wide uppercase mb-4">
+    <section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-white">
+      
+      <!-- Grid pattern background -->
+      <div class="absolute inset-0 bg-[url('/src/img/grid-pattern.svg')] bg-repeat opacity-10 pointer-events-none z-0"></div>
+    
+      <!-- Gradient mask fading the top -->
+      <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div>
+      <div class="relative z-10 max-w-7xl mx-auto text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-assistant font-bold text-light-pink tracking-wide uppercase mb-4">
           Practice Areas
         </h2>
         <p class="text-muted text-md md:text-lg max-w-2xl mx-auto">
@@ -125,7 +131,7 @@
           <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
             Family Law
           </h3>
-          <p class="text-sm leading-relaxed text-muted">
+          <p class="text-sm text-ember leading-relaxed text-muted">
             Offering comprehensive services in divorce, custody, child support, and modifications, as well as expertise in guardianship and Care & Protection cases involving the Department of Children and Families (DCF).
           </p>
         </div>
@@ -135,7 +141,7 @@
           <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
             Personal Injury
           </h3>
-          <p class="text-sm leading-relaxed text-muted">
+          <p class="text-sm text-ember leading-relaxed text-muted">
             Advocating for victims of accidents and injuries, ensuring they receive the compensation they deserve.
           </p>
         </div>
@@ -145,12 +151,53 @@
           <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
             Immigration Law
           </h3>
-          <p class="text-sm leading-relaxed text-muted">
+          <p class="text-sm text-ember leading-relaxed text-muted">
             Assisting clients with family-based immigration petitions, adjustment of status, naturalization, and deportation defense. Whether you're seeking to reunite with loved ones, secure your residency, or protect your rights, we are here to guide you through every step of the immigration process.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- Services Section -->
+    <section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-light-pink">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-assistant font-bold tracking-wide uppercase mb-8 text-center">
+          Family Law Services
+        </h2>
+    
+        <!-- Accordion Group -->
+        <div class="space-y-6">
+    
+          <!-- Divorce Accordion Item -->
+          <div class="border border-light-pink rounded-md overflow-hidden">
+            <div class="bg-[#27232d] px-6 py-4 font-semibold text-lg cursor-pointer">
+              Divorce
+            </div>
+            <div class="px-6 py-4 bg-[#1f1f1f] text-sm space-y-2">
+              <p>Representing clients in contested and uncontested divorces.</p>
+              <p>Handling asset and debt division, including high-net-worth cases.</p>
+              <p>Addressing spousal support (alimony) disputes and agreements.</p>
+            </div>
+          </div>
+    
+          <!-- Custody Accordion Item -->
+          <div class="border border-light-pink rounded-md overflow-hidden">
+            <div class="bg-[#27232d] px-6 py-4 font-semibold text-lg cursor-pointer">
+              Child Custody and Parenting Plans
+            </div>
+            <div class="px-6 py-4 bg-[#1f1f1f] text-sm space-y-2">
+              <p>Advocating for custody arrangements that prioritize the best interests of the child.</p>
+              <p>Drafting, modifying, and enforcing parenting plans and visitation schedules.</p>
+              <p>Handling interstate custody matters under the UCCJEA.</p>
+            </div>
+          </div>
+    
+          <!-- Add more sections here -->
+    
+        </div>
+      </div>
+    </section>
+    
     
     
     <script type="module" src="/src/main.js"></script>
