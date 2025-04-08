@@ -1,29 +1,22 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
-
+import Alpine from 'alpinejs'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-AOS.init()
+window.Alpine = Alpine
+Alpine.start()
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Normal AOS init (don't delay here)
+AOS.init({
+  once: false,       // <— triggers animation on every scroll into view
+  duration: 700,
+  offset: 50,
+})
 
-setupCounter(document.querySelector('#counter'))
+
+// Optional refresh shortly after load to catch Alpine content
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    AOS.refresh()
+  }, 100)
+})

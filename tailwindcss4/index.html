@@ -2,210 +2,170 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Evelyn Law</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link href="/src/styles.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+      [x-cloak] { display: none; }
+    </style>
   </head>
   <body class="antialiased bg-midnight text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-ember border border-gray-200 px-4 py-2.5 rounded shadow">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="flex items-center">
+          <span class="text-light-pink text-xl font-semibold ml-4">Evelyn Law</span>
+        </a>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-off-white p-2 rounded-lg focus:ring-2">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden md:flex space-x-6" id="mobile-menu">
+          <a href="#" class="text-off-white hover:text-blue-400">Home</a>
+          <a href="#" class="text-off-white hover:text-blue-400">About</a>
+          <a href="#" class="text-off-white hover:text-blue-400">Services</a>
+          <a href="#" class="text-off-white hover:text-blue-400">Contact</a>
+        </div>
+      </div>
+    </nav>
 
-  <!-- component -->
-<nav class="bg-ember border border-gray-200 dark:border-gray-700 px-2 sm:px-4 py-2.5 rounded shadow">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="/" class="flex items-center">
-      <span class="self-center ml-4 text-light-pink text-xl font-semibold whitespace-nowrap">
-        Evelyn Law
-      </span>
-    </a>
-
-    <div class="flex items-center">
-      <button
-        id="menu-toggle"
-        type="button"
-        class="inline-flex items-center p-2 ml-3 text-sm text-off-white rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-light-pink md:hidden"
-      >
-        <span class="sr-only">Open main menu</span>
-        <!-- Hamburger icon -->
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <div class="w-full md:block md:w-auto hidden" id="mobile-menu">
-
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-        <li>
-          <a
-            href="#"
-            class="block py-2 pr-4 pl-3 text-off-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-            aria-current="page"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 pr-4 pl-3 text-off-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 pr-4 pl-3 text-off-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            Services
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 pr-4 pl-3 text-off-white hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</nav>
-
+    <!-- Hero Section -->
     <section class="relative overflow-hidden min-h-[60vh] md:min-h-screen px-6">
-      <!-- Background logo (optional) -->
-      <img
-        src="src/img/symbol-black.png"
-        alt="Background Logo"
-        class="hidden md:block md:absolute md:top-12 md:right-[100px] md:opacity-5 max-w-[400px] md:max-w-[500px] pointer-events-none z-0"
-      />
-    
-      <!-- Grid content wrapper -->
-      <div class="relative z-10 mt-12 md:mt-20 max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-        <!-- Left: Hero Text -->
+      <img src="src/img/symbol-black.png" alt="Background Logo" class="hidden md:block md:absolute md:top-12 md:right-[100px] md:opacity-5 max-w-[500px] pointer-events-none z-0" />
+      <div class="relative z-10 mt-12 md:mt-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
         <div class="p-1.5 md:pl-[80px]">
           <h1 class="uppercase text-3xl md:text-5xl font-semibold leading-tight mb-6 bg-gradient-to-r from-off-white to-light-pink bg-clip-text text-transparent">
             Evelyn Law // Family Law & Personal Injury Attorney
           </h1>
           <p class="font-assistant text-justify text-md text-light-pink mb-8">
-            We are dedicated to providing compassionate, skilled, and results-driven legal representation in Family Law,
-            Personal Injury, and Immigration Law. With years of experience advocating for clients in complex legal matters,
-            we are committed to delivering personalized solutions tailored to your unique needs.
+            We are dedicated to providing compassionate, skilled, and results-driven legal representation...
           </p>
-          <button class="inline-block bg-gradient-to-r from-[#383037] to-[#27232d] font-assistant text-light-pink text-base px-6 py-3 rounded-md hover:bg-gray-800 transition">
+          <button class="bg-gradient-to-r from-[#383037] to-[#27232d] font-assistant text-light-pink px-6 py-3 rounded-md hover:bg-gray-800 transition">
             Schedule a Consultation
           </button>
         </div>
-    
-        </div>
+      </div>
     </section>
-
 
     <!-- Practice Areas -->
-    <section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-white">
-      
-      <!-- Grid pattern background -->
-      <div class="absolute inset-0 bg-[url('/src/img/grid-pattern.svg')] bg-repeat opacity-10 pointer-events-none z-0"></div>
-    
-      <!-- Gradient mask fading the top -->
-      <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div>
-      <div class="relative z-10 max-w-7xl mx-auto text-center mb-14">
-        <h2 class="text-3xl md:text-4xl font-assistant font-bold text-light-pink tracking-wide uppercase mb-4">
-          Practice Areas
-        </h2>
-        <p class="text-muted text-md md:text-lg max-w-2xl mx-auto">
-          Providing expert legal support across Family, Injury, and Immigration law.
-        </p>
+<section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-white">
+  <!-- Grid pattern background -->
+  <div class="absolute inset-0 bg-[url('/src/img/grid-pattern.svg')] bg-repeat opacity-10 pointer-events-none z-0"></div>
+  <!-- Gradient mask fading the top -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto text-center mb-14">
+    <h2 class="text-3xl md:text-4xl font-assistant font-bold text-light-pink tracking-wide uppercase mb-4">
+      Practice Areas
+    </h2>
+    <p class="text-muted text-md md:text-lg max-w-2xl mx-auto">
+      Providing expert legal support across Family, Injury, and Immigration law.
+    </p>
+  </div>
+
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- Family Law -->
+    <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+        Family Law
+      </h3>
+      <p class="text-sm text-ember leading-relaxed text-muted">
+        Offering comprehensive services in divorce, custody, child support, and modifications, as well as expertise in guardianship and Care & Protection cases involving the Department of Children and Families (DCF).
+      </p>
+    </div>
+
+    <!-- Personal Injury -->
+    <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+        Personal Injury
+      </h3>
+      <p class="text-sm text-ember leading-relaxed text-muted">
+        Advocating for victims of accidents and injuries, ensuring they receive the compensation they deserve.
+      </p>
+    </div>
+
+    <!-- Immigration Law -->
+    <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="250">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+        Immigration Law
+      </h3>
+      <p class="text-sm text-ember leading-relaxed text-muted">
+        Assisting clients with family-based immigration petitions, adjustment of status, naturalization, and deportation defense. Whether you're seeking to reunite with loved ones, secure your residency, or protect your rights, we are here to guide you through every step of the immigration process.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Practice Area Tabs -->
+    <section x-data="{ tab: 'family' }" x-cloak class="bg-white text-[#4a3a2b] px-6 py-20 md:px-24 border-t border-dotted border-midnight">
+      <div class="max-w-3xl mx-auto">
+        <!-- Tabs -->
+        <div class="flex justify-center space-x-6 border-b border-midnight pb-4 mb-10">
+          <template x-for="category in ['family', 'injury', 'immigration']">
+            <button 
+              @click="tab = category; $nextTick(() => AOS.refresh())" 
+              :class="tab === category ? 'text-amber-700 border-b-2 border-midnight' : 'text-gray-400'" 
+              class="pb-2 text-lg font-semibold transition-colors duration-300 capitalize">
+              <span x-text="category + ' Law'"></span>
+            </button>
+          </template>
+        </div>
+
+        <!-- Family Law Tab -->
+  <div 
+  x-show="tab === 'family'"
+  x-transition:enter="transition ease-out duration-500"
+  x-transition:enter-start="opacity-0 -translate-x-4"
+  x-transition:enter-end="opacity-100 translate-x-0"
+  :key="tab" 
+  data-aos="fade-right"
+  data-aos-duration="700"
+  data-aos-once="false"
+  class="relative"
+  >
+  <div class="flex flex-col md:flex-row-reverse gap-6 items-start pt-8">
+    <!-- Image -->
+    <div class="w-full md:w-1/3 md:mt-6">
+      <div class="aspect-square bg-gray-100 rounded-md flex items-center justify-center border border-dashed border-amber-300">
+        <span class="text-xs text-amber-600 font-semibold">Image Placeholder</span>
       </div>
-    
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <!-- Family Law -->
-        <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
-            Family Law
-          </h3>
-          <p class="text-sm text-ember leading-relaxed text-muted">
-            Offering comprehensive services in divorce, custody, child support, and modifications, as well as expertise in guardianship and Care & Protection cases involving the Department of Children and Families (DCF).
-          </p>
+    </div>
+
+    <!-- Text -->
+    <div class="w-full md:w-2/3">
+      <h3 class="text-2xl font-bold text-amber-800 mb-2">Family Law</h3>
+      <p class="text-sm text-gray-700 mb-6 max-w-md leading-relaxed border-b border-dotted border-gray-300 pb-4">
+        Compassionate and strategic legal services tailored to your family’s needs—supporting you through transitions with clarity and care.
+      </p>
+
+      <div class="space-y-5">
+        <div class="border-l-4 border-amber-300 pl-4">
+          <h4 class="font-semibold text-lg mb-1 text-amber-700">Divorce</h4>
+          <ul class="list-disc ml-5 text-sm text-gray-700 leading-snug">
+            <li>Contested/uncontested cases</li>
+            <li>Asset division, spousal support</li>
+            <li>High-net-worth representation</li>
+          </ul>
         </div>
-    
-        <!-- Personal Injury -->
-        <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
-            Personal Injury
-          </h3>
-          <p class="text-sm text-ember leading-relaxed text-muted">
-            Advocating for victims of accidents and injuries, ensuring they receive the compensation they deserve.
-          </p>
-        </div>
-    
-        <!-- Immigration Law -->
-        <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="350">
-          <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
-            Immigration Law
-          </h3>
-          <p class="text-sm text-ember leading-relaxed text-muted">
-            Assisting clients with family-based immigration petitions, adjustment of status, naturalization, and deportation defense. Whether you're seeking to reunite with loved ones, secure your residency, or protect your rights, we are here to guide you through every step of the immigration process.
-          </p>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-light-pink">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-assistant font-bold tracking-wide uppercase mb-8 text-center">
-          Family Law Services
-        </h2>
-    
-        <!-- Accordion Group -->
-        <div class="space-y-6">
-    
-          <!-- Divorce Accordion Item -->
-          <div class="border border-light-pink rounded-md overflow-hidden">
-            <div class="bg-[#27232d] px-6 py-4 font-semibold text-lg cursor-pointer">
-              Divorce
-            </div>
-            <div class="px-6 py-4 bg-[#1f1f1f] text-sm space-y-2">
-              <p>Representing clients in contested and uncontested divorces.</p>
-              <p>Handling asset and debt division, including high-net-worth cases.</p>
-              <p>Addressing spousal support (alimony) disputes and agreements.</p>
-            </div>
-          </div>
-    
-          <!-- Custody Accordion Item -->
-          <div class="border border-light-pink rounded-md overflow-hidden">
-            <div class="bg-[#27232d] px-6 py-4 font-semibold text-lg cursor-pointer">
-              Child Custody and Parenting Plans
-            </div>
-            <div class="px-6 py-4 bg-[#1f1f1f] text-sm space-y-2">
-              <p>Advocating for custody arrangements that prioritize the best interests of the child.</p>
-              <p>Drafting, modifying, and enforcing parenting plans and visitation schedules.</p>
-              <p>Handling interstate custody matters under the UCCJEA.</p>
-            </div>
-          </div>
-    
-          <!-- Add more sections here -->
-    
-        </div>
-      </div>
-    </section>
-    
-    
-    
     <script type="module" src="/src/main.js"></script>
     <script>
       const menuToggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
-    
-      menuToggle.addEventListener('click', function () {
+      menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
     </script>
