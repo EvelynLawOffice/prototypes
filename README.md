@@ -14,4 +14,3 @@ This space is intentionally flexible. It exists to:
 - Experiment with layout, typography, structure, and tone
 - Try new visual ideas without risk
 - Act as a personal dev lab before formal integration into the live repo
-
