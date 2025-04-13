@@ -3,6 +3,10 @@
 @import "tailwindcss";
 
 
+[x-cloak] {
+  display: none !important;
+}
+
 @theme {
   --font-roboto: "Roboto", sans-serif; 
   --font-alumni: "Alumni Sans Pinstripe", sans-serif;
@@ -13,6 +17,9 @@
   --color-midnight: #181920;
   --color-off-white: #f8faf9;
   }
+
+  
+  
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
