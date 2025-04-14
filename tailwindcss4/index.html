@@ -110,7 +110,8 @@
     <!-- Tabs Setup-->
     <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
       <template x-for="category in ['family', 'injury', 'immigration']">
-        <button 
+        <button
+          transition-all duration-300 ease-in-out border-b-2
           @click="tab = category; $nextTick(() => AOS.refresh())" 
           :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'" 
           class="pb-2 text-lg font-semibold capitalize transition-colors duration-300">
@@ -135,15 +136,16 @@
 
         <!-- Text -->
         <div class="w-full md:w-2/3">
-          <h3 class="mb-2 text-2xl font-bold text-midnight">Family Law</h3>
+          <h3 data-aos="fade-up" data-aos-delay="100" class="mb-2 text-2xl font-bold text-midnight">Family Law</h3>
           <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
             Compassionate and strategic legal services tailored to your family’s needs—supporting you through transitions with clarity and care.
           </p>
 
           <div class="space-y-5">
             <div class="pl-4 border-l-4 border-midnight">
-              <h4 class="mb-1 text-lg font-semibold text-midnight">Divorce</h4>
-              <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+              <h4 class="mb-1 text-lg font-semibold text-midnight">Lorem Ipsum</h4>
+              <ul data-aos="fade-up" data-aos-delay="300" class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+                <li >Divorce</li>
                 <li>Contested/uncontested cases</li>
                 <li>Asset division, spousal support</li>
                 <li>High-net-worth representation</li>
@@ -209,9 +211,10 @@
 
         <!-- Text -->
         <div class="w-full md:w-2/3">
-          <h3 class="mb-2 text-2xl font-bold text-midnight">Personal Injury</h3>
+          <h3 class="mb-2 text-2xl font-bold text-midnight">Immigration Law</h3>
           <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
-            Dedicated legal support for injury victims—fighting for the compensation and recovery you deserve.
+            We provide comprehensive immigration services to help clients navigate the complex and often overwhelming U.S. immigration system. 
+            Whether you are seeking to reunite with loved ones, secure legal status, or defend against removal, we are here to provide the support and expertise you need.
           </p>
 
           <div class="space-y-5">
