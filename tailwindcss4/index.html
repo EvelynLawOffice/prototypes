@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evelyn Law</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link href="/src/styles.css" rel="stylesheet">
+    <!-- <link href="/src/styles.css" rel="stylesheet"> -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
       [x-cloak] { display: none; }
@@ -103,116 +103,142 @@
 </section>
 
 
-    <!-- Practice Area Tabs -->
-    <section x-data="{ tab: 'family' }" :key="tab" x-cloak class="bg-white text-[#4a3a2b] px-6 py-20 md:px-24 border-t border-dotted border-midnight">
-      <div class="max-w-3xl mx-auto">
-        <!-- Tabs -->
-        <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
-          <template x-for="category in ['family', 'injury', 'immigration']">
-            <button 
-              @click="tab = category; $nextTick(() => AOS.refresh())" 
-              :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'" 
-              class="pb-2 text-lg font-semibold capitalize transition-colors duration-300">
-              <span x-text="category + ' Law'"></span>
-            </button>
-          </template>
-        </div>
-
-        <!-- Family Law Tab -->
-  <div 
-  x-show="tab === 'family'" x-cloak
-  x-transition:enter="transition ease-out duration-500"
-  x-transition:enter-start="opacity-0 -translate-x-4"
-  x-transition:enter-end="opacity-100 translate-x-0"
-  :key="tab" 
-  data-aos="fade-right"
-  data-aos-duration="700"
-  data-aos-once="false"
-  class="relative"
-  >
-  <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-    <!-- Image -->
-    <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
-      <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
-        <img 
-          src="src/img/family-law.jpg" 
-          alt="Paper cut-out family, judges gavel, scales of justice" 
-          class="h-auto max-w-full"
-        />
-      </div>
+    <!-- TABS PARENT -->
+<section x-data="{ tab: 'family' }" :key="tab" x-cloak class="bg-white text-[#4a3a2b] px-6 py-20 md:px-24 border-t border-dotted border-midnight">
+  <div class="max-w-3xl mx-auto">
+    
+    <!-- Tabs Setup-->
+    <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
+      <template x-for="category in ['family', 'injury', 'immigration']">
+        <button 
+          @click="tab = category; $nextTick(() => AOS.refresh())" 
+          :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'" 
+          class="pb-2 text-lg font-semibold capitalize transition-colors duration-300">
+          <span x-text="category + ' Law'"></span>
+        </button>
+      </template>
     </div>
 
-    <!-- Text -->
-    <div class="w-full md:w-2/3">
-      <h3 class="mb-2 text-2xl font-bold text-midnight">Family Law</h3>
-      <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
-        Compassionate and strategic legal services tailored to your family’s needs—supporting you through transitions with clarity and care.
-      </p>
+    <!-- Family Law Tab -->
+    <div x-show="tab === 'family'" x-cloak class="relative" data-aos="fade-right" data-aos-duration="700">
+      <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+        <!-- Image -->
+        <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+            <img 
+              src="src/img/family-law.jpg" 
+              alt="Paper cut-out family, judges gavel, scales of justice" 
+              class="h-auto max-w-full"
+            />
+          </div>
+        </div>
 
-      <div class="space-y-5">
-        <div class="pl-4 border-l-4 border-midnight">
-          <h4 class="mb-1 text-lg font-semibold text-midnight">Divorce</h4>
-          <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-            <li>Contested/uncontested cases</li>
-            <li>Asset division, spousal support</li>
-            <li>High-net-worth representation</li>
-          </ul>
+        <!-- Text -->
+        <div class="w-full md:w-2/3">
+          <h3 class="mb-2 text-2xl font-bold text-midnight">Family Law</h3>
+          <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
+            Compassionate and strategic legal services tailored to your family’s needs—supporting you through transitions with clarity and care.
+          </p>
+
+          <div class="space-y-5">
+            <div class="pl-4 border-l-4 border-midnight">
+              <h4 class="mb-1 text-lg font-semibold text-midnight">Divorce</h4>
+              <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+                <li>Contested/uncontested cases</li>
+                <li>Asset division, spousal support</li>
+                <li>High-net-worth representation</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Personal Injury Law Tab -->
+    <div x-show="tab === 'injury'" x-cloak class="relative" data-aos="fade-right" data-aos-duration="700">
+      <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+        <!-- Image -->
+        <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+            <img 
+              src="src/img/accident.jpg" 
+              alt="Paper cut-out family, judges gavel, scales of justice" 
+              class="h-auto max-w-full"
+            />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="w-full md:w-2/3">
+          <h3 class="mb-2 text-2xl font-bold text-midnight">Personal Injury</h3>
+          <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
+            Dedicated legal support for injury victims—fighting for the compensation and recovery you deserve.
+          </p>
+
+          <div class="space-y-5">
+            <div class="pl-4 border-l-4 border-midnight">
+              <h4 class="mb-1 text-lg font-semibold text-midnight">Case Types</h4>
+              <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+                <li>Motor Vehicle Accidents</li>
+                <li>Slip and Fall Accidents</li>
+                <li>Workplace Accidents</li>
+                <li>Medical Malpractice</li>
+                <li>Product Liability</li>
+                <li>Wrongful Death</li>
+                <li>Insurance Claims and Disputes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Immigration Law Tab -->
+    <div x-show="tab === 'immigration'" x-cloak class="relative" data-aos="fade-right" data-aos-duration="700">
+      <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+        <!-- Image -->
+        <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+            <img 
+              src="src/img/immigration.JPG" 
+              alt="Paper cut-out family, judges gavel, scales of justice" 
+              class="h-auto max-w-full"
+            />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="w-full md:w-2/3">
+          <h3 class="mb-2 text-2xl font-bold text-midnight">Personal Injury</h3>
+          <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
+            Dedicated legal support for injury victims—fighting for the compensation and recovery you deserve.
+          </p>
+
+          <div class="space-y-5">
+            <div class="pl-4 border-l-4 border-midnight">
+              <h4 class="mb-1 text-lg font-semibold text-midnight">Case Types</h4>
+              <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+                <li>Motor Vehicle Accidents</li>
+                <li>Slip and Fall Accidents</li>
+                <li>Workplace Accidents</li>
+                <li>Medical Malpractice</li>
+                <li>Product Liability</li>
+                <li>Wrongful Death</li>
+                <li>Insurance Claims and Disputes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
-<!-- Personal Injury Law Tab -->
-<div 
-  x-show="tab === 'injury'" x-cloak
-  x-transition:enter="transition ease-out duration-500"
-  x-transition:enter-start="opacity-0 -translate-x-4"
-  x-transition:enter-end="opacity-100 translate-x-0"
-  :key="tab" 
-  data-aos="fade-right"
-  data-aos-duration="700"
-  data-aos-once="false"
-  class="relative"
-  >
-  <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-    <!-- Image -->
-    <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
-      <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
-        <img 
-          src="src/img/family-law.jpg" 
-          alt="Paper cut-out family, judges gavel, scales of justice" 
-          class="h-auto max-w-full"
-        />
-      </div>
-    </div>
+    
 
-    <!-- Text -->
-    <div class="w-full md:w-2/3">
-      <h3 class="mb-2 text-2xl font-bold text-midnight">Injury Law</h3>
-      <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
-        When an accident or injury disrupts your life, our firm is here to help you seek justice and fair compensation. We provide skilled representation for individuals who have been harmed due to the negligence or misconduct of others. Our personal injury services include:      </p>
 
-      <div class="space-y-5">
-        <div class="pl-4 border-l-4 border-midnight">
-          <h4 class="mb-1 text-lg font-semibold text-midnight">Divorce</h4>
-          <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-            <li>Motor Vehicle Accidents</li>
-            <li>Slip and Fall Accidents</li>
-            <li>Workplace Accidents</li>
-            <li>Medical Malpractice</li>
-            <li>Product Liability</li>
-            <li>Wrongful Death</li>
-            <li>Insurance Claims and Disputes</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-    </section>
+    
 
     <script type="module" src="/src/main.js"></script>
     <script>
