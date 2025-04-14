@@ -12,27 +12,54 @@
     </style>
   </head>
   <body class="antialiased text-gray-900 bg-midnight">
+
+    <!--Logo Section-->
+    
+
     <!-- Navbar -->
-    <nav class="bg-ember border border-gray-200 px-4 py-2.5 rounded shadow">
+    <nav class="bg-ember border border-gray-200 px-4 py-2.5 rounded shadow relative z-50">
       <div class="container flex items-center justify-between mx-auto">
-        <a href="/" class="flex items-center">
-          <span class="ml-4 text-xl font-semibold text-light-pink">Evelyn Law</span>
+        
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <img src="src/img/symbol-white.png" alt="Logo" class="w-auto h-8" />
+          <span class="hidden font-serif text-xl uppercase md:inline-block text-off-white">Evelyn Law</span>
         </a>
-        <div class="md:hidden">
-          <button id="menu-toggle" class="p-2 rounded-lg text-off-white focus:ring-2">
+    
+        <!-- Hamburger Button -->
+        <div class="z-50 md:hidden">
+          <button id="menu-toggle" class="p-2 rounded-lg text-off-white focus:ring-2 focus:ring-light-pink">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
         </div>
-        <div class="hidden space-x-6 md:flex" id="mobile-menu">
+    
+        <!-- Desktop Nav (optional, keep or remove) -->
+        <div class="hidden space-x-6 md:flex">
           <a href="#" class="text-off-white hover:text-blue-400">Home</a>
           <a href="#" class="text-off-white hover:text-blue-400">About</a>
           <a href="#" class="text-off-white hover:text-blue-400">Services</a>
           <a href="#" class="text-off-white hover:text-blue-400">Contact</a>
         </div>
       </div>
+      
+      <!-- Mobile Backdrop -->
+      <div id="mobile-backdrop" class="fixed inset-0 z-40 hidden transition-opacity duration-300 backdrop-blur-sm bg-white/30 md:hidden"></div>
+
+    
+      <!-- Mobile Dropdown -->
+      <div id="mobile-menu" class="absolute left-0 top-full w-full bg-[#282828bf] hidden flex-col items-center px-6 py-6 space-y-4 transition-all duration-300 ease-out shadow-md z-50 md:hidden">        <!-- Frosted Glass Backdrop -->
+
+
+        <a href="https://www.facebook.com/people/Evelyn-Law/100093140401176/" target="_blank" class="w-full text-lg text-center text-off-white hover:text-blue-400">Facebook</a>
+        <a href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F" target="_blank" class="w-full text-lg text-center text-off-white hover:text-pink-400">Linked-In</a>
+        <a href="tel:+508.521.9020" class="w-full text-lg text-center text-off-white hover:text-green-400">Call Us: 508.521.9020</a>
+
+      </div>
     </nav>
+    
 
     <!-- Hero Section -->
     <section class="relative min-h-screen px-6 overflow-hidden">
@@ -40,10 +67,10 @@
       <div class="relative z-10 grid items-center mx-auto mt-12 md:mt-20 max-w-7xl md:grid-cols-2 gap-14">
         <div class="p-1.5 md:pl-[80px]">
           <h2 class="mb-6 text-3xl font-semibold leading-tight text-transparent uppercase md:text-5xl bg-gradient-to-t from-off-white to-light-pink bg-clip-text">
-            <span class="text-4xl text-transparent md:text-6xl bg-gradient-to-r from-light-pink to-ember bg-clip-text">
+            <span class="font-serif text-4xl text-transparent uppercase whitespace-nowrap md:text-6xl bg-gradient-to-r from-light-pink to-ember bg-clip-text">
               Evelyn Law //</span><br /> Family Law & Personal Injury Attorney
           </h2>
-          <p class="mb-8 text-xl text-left font-assistant text-md text-light-pink">
+          <p class="mb-8 text-lg text-left font-assistant text-md text-light-pink">
             We are dedicated to providing compassionate, skilled, and results-driven legal representation
           </p>
           <button class="bg-gradient-to-r from-[#383037] to-[#27232d] font-assistant text-light-pink px-6 py-3 rounded-md hover:bg-gray-800 transition">
@@ -72,7 +99,7 @@
   <div class="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-3">
     <!-- Family Law -->
     <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
         Family Law
       </h3>
       <p class="text-sm leading-relaxed text-ember text-muted">
@@ -82,17 +109,18 @@
 
     <!-- Personal Injury -->
     <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
         Personal Injury
       </h3>
       <p class="text-sm leading-relaxed text-ember text-muted">
-        Advocating for victims of accidents and injuries, ensuring they receive the compensation they deserve.
+        Dedicated legal support for injury victims—fighting for the compensation and recovery you deserve.
+
       </p>
     </div>
 
     <!-- Immigration Law -->
     <div class="group bg-white border border-[#f6c2bf] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="250">
-      <h3 class="text-xl font-semibold text-[#1f1f1f] mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
+      <h3 class="text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 mb-3 transition-colors duration-200 group-hover:text-[#f6c2bf]">
         Immigration Law
       </h3>
       <p class="text-sm leading-relaxed text-ember text-muted">
@@ -125,7 +153,7 @@
       <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
         <!-- Image -->
         <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
-          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight">
             <img 
               src="src/img/family-law.jpg" 
               alt="Paper cut-out family, judges gavel, scales of justice" 
@@ -143,7 +171,6 @@
 
           <div class="space-y-5">
             <div class="pl-4 border-l-4 border-midnight">
-              <h4 class="mb-1 text-lg font-semibold text-midnight">Lorem Ipsum</h4>
               <ul data-aos="fade-up" data-aos-delay="300" class="ml-5 text-sm leading-snug text-gray-700 list-disc">
                 <li >Divorce</li>
                 <li>Contested/uncontested cases</li>
@@ -161,7 +188,7 @@
       <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
         <!-- Image -->
         <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
-          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight">
             <img 
               src="src/img/accident.jpg" 
               alt="Paper cut-out family, judges gavel, scales of justice" 
@@ -174,12 +201,13 @@
         <div class="w-full md:w-2/3">
           <h3 class="mb-2 text-2xl font-bold text-midnight">Personal Injury</h3>
           <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
-            Dedicated legal support for injury victims—fighting for the compensation and recovery you deserve.
+            When an accident or injury disrupts your life, our firm is here to help you seek justice and fair compensation. 
+            We provide skilled representation for individuals who have been harmed due to the negligence or misconduct of others. 
+            Our personal injury services include:
           </p>
 
           <div class="space-y-5">
             <div class="pl-4 border-l-4 border-midnight">
-              <h4 class="mb-1 text-lg font-semibold text-midnight">Case Types</h4>
               <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
                 <li>Motor Vehicle Accidents</li>
                 <li>Slip and Fall Accidents</li>
@@ -200,7 +228,7 @@
       <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
         <!-- Image -->
         <div class="flex-shrink-0 w-full md:w-1/3 md:mt-6">
-          <div class="flex justify-center p-2 bg-gray-100 border border-dashed rounded-md border-midnight">
+          <div class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight">
             <img 
               src="src/img/immigration.JPG" 
               alt="Paper cut-out family, judges gavel, scales of justice" 
@@ -219,15 +247,12 @@
 
           <div class="space-y-5">
             <div class="pl-4 border-l-4 border-midnight">
-              <h4 class="mb-1 text-lg font-semibold text-midnight">Case Types</h4>
               <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-                <li>Motor Vehicle Accidents</li>
-                <li>Slip and Fall Accidents</li>
-                <li>Workplace Accidents</li>
-                <li>Medical Malpractice</li>
-                <li>Product Liability</li>
-                <li>Wrongful Death</li>
-                <li>Insurance Claims and Disputes</li>
+                <li>Family-Based Immigration</li>
+                <li>Naturalization and Citizenship</li>
+                <li>Deferred Action and Humanitarian Relief</li>
+                <li>Removal Defense</li>
+                <li>Work Visas and Employment-Based Immigration</li>
               </ul>
             </div>
           </div>
@@ -244,12 +269,38 @@
     
 
     <script type="module" src="/src/main.js"></script>
-    <script>
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    </script>
+    
+      <!-- JavaScript to toggle menu -->
+      <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('mobile-backdrop');
+
+          // Toggle menu and backdrop visibility
+        toggleBtn.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('flex');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        backdrop.classList.toggle('hidden');
+        });
+
+          // Close menu when clicking on a nav link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        backdrop.classList.add('hidden');
+        });
+        });
+
+          // Optional: close menu if backdrop is clicked
+        backdrop.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        backdrop.classList.add('hidden');
+        });
+
+      </script>
+      
   </body>
 </html>
