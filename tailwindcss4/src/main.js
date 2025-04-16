@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
         backdrop.classList.add('hidden');
         });
 
-
+// Testimonial Section
     const track = document.getElementById('testimonialTrack');
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
