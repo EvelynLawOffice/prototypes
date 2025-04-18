@@ -52,30 +52,29 @@ window.addEventListener('load', () => {
         });
 
 // Testimonial Section
-    const track = document.getElementById('testimonialTrack');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
+const track = document.getElementById('testimonialTrack');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
 
-    let index = 0;
-    const slides = track.children;
-    const total = slides.length;
+let index = 0;
+const slides = track.children;
+const total = slides.length;
 
-    function updateSlidePosition() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
+function updateSlidePosition() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    prev.addEventListener('click', () => {
-      index = (index - 1 + total) % total;
-      updateSlidePosition();
-    });
+prev.addEventListener('click', () => {
+  index = (index - 1 + total) % total;
+  updateSlidePosition();
+});
 
-    next.addEventListener('click', () => {
-      index = (index + 1) % total;
-      updateSlidePosition();
-    });
+next.addEventListener('click', () => {
+  index = (index + 1) % total;
+  updateSlidePosition();
+});
 
-    // Optional: swipe support
-    let startX = 0;
+let startX = 0;
 let isSwiping = false;
 
 track.addEventListener('touchstart', e => {
@@ -86,12 +85,8 @@ track.addEventListener('touchstart', e => {
 track.addEventListener('touchmove', e => {
   if (!isSwiping) return;
   const deltaX = e.touches[0].clientX - startX;
-
-  // Optional: prevent scrolling if swipe is mostly horizontal
-  if (Math.abs(deltaX) > 10) {
-    e.preventDefault();
-  }
-}, { passive: false }); // <- important to allow preventDefault
+  if (Math.abs(deltaX) > 10) e.preventDefault();
+}, { passive: false });
 
 track.addEventListener('touchend', e => {
   if (!isSwiping) return;
@@ -99,9 +94,11 @@ track.addEventListener('touchend', e => {
   const endX = e.changedTouches[0].clientX;
   const delta = startX - endX;
 
-  console.log('Swipe delta:', delta); // 👈 add this line
-
-  if (delta > 50) next.click();
-  if (delta < -50) prev.click();
+  if (delta > 50) {
+    index = (index + 1) % total;
+    updateSlidePosition();
+  } else if (delta < -50) {
+    index = (index - 1 + total) % total;
+    updateSlidePosition();
+  }
 });
-
