@@ -76,10 +76,32 @@ window.addEventListener('load', () => {
 
     // Optional: swipe support
     let startX = 0;
-    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    track.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      const delta = startX - endX;
-      if (delta > 50) next.click();
-      if (delta < -50) prev.click();
-    });
+let isSwiping = false;
+
+track.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  isSwiping = true;
+}, { passive: true });
+
+track.addEventListener('touchmove', e => {
+  if (!isSwiping) return;
+  const deltaX = e.touches[0].clientX - startX;
+
+  // Optional: prevent scrolling if swipe is mostly horizontal
+  if (Math.abs(deltaX) > 10) {
+    e.preventDefault();
+  }
+}, { passive: false }); // <- important to allow preventDefault
+
+track.addEventListener('touchend', e => {
+  if (!isSwiping) return;
+  isSwiping = false;
+  const endX = e.changedTouches[0].clientX;
+  const delta = startX - endX;
+
+  console.log('Swipe delta:', delta); // 👈 add this line
+
+  if (delta > 50) next.click();
+  if (delta < -50) prev.click();
+});
+
