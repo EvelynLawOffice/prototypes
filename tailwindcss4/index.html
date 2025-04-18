@@ -11,7 +11,7 @@
       [x-cloak] { display: none; }
     </style>
   </head>
-  <body class="antialiased text-gray-900 bg-midnight">
+  <body class="antialiased text-gray-900 bg-navy">
 
     <!--Logo Section-->
     
@@ -67,7 +67,7 @@
       <div class="relative z-10 grid items-center mx-auto mt-12 md:mt-20 max-w-7xl md:grid-cols-2 gap-14">
         <div class="p-1.5 md:pl-[80px]">
           <h2 class="mb-6 text-3xl font-semibold leading-tight text-transparent uppercase md:text-5xl bg-gradient-to-t from-off-white to-light-pink bg-clip-text">
-            <span class="font-serif text-4xl text-transparent uppercase whitespace-nowrap md:text-6xl bg-gradient-to-r from-light-pink to-ember bg-clip-text">
+            <span class="text-4xl font-black uppercase whitespace-nowrap md:text-6xl text-light-pink">
               Evelyn Law //</span><br /> Family Law & Personal Injury Attorney
           </h2>
           <p class="mb-8 text-lg text-left font-assistant text-md text-light-pink">
@@ -81,11 +81,13 @@
     </section>
 
     <!-- Practice Areas -->
-<section class="relative z-10 px-6 py-16 md:px-20 bg-[#1C1D25] text-white">
+    <section class="relative z-10 px-6 py-16 overflow-hidden text-white md:px-20 bg-blackout">
   <!-- Grid pattern background -->
-  <div class="absolute inset-0 bg-[url('/src/img/grid-pattern.svg')] bg-repeat opacity-10 pointer-events-none z-0"></div>
-  <!-- Gradient mask fading the top -->
-  <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div>
+  <div class="absolute inset-0 z-[-1] pointer-events-none" style="
+  background-image: repeating-linear-gradient(315deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 0px, transparent 50%);
+  background-size: 10px 10px;"></div>
+  
+  <!-- <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div> -->
 
   <div class="relative z-10 mx-auto text-center max-w-7xl mb-14">
     <h2 class="mb-4 text-3xl font-bold tracking-wide uppercase md:text-4xl font-assistant text-light-pink">
@@ -264,42 +266,64 @@
 </section>
 
 <!---Testimonial Section-->
-<section id="testimonials" class="px-4 py-12 bg-midnight">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="mb-8 text-3xl font-bold text-center">What Our Clients Say</h2>
+<section id="testimonials" class="relative z-10 px-0 py-20 overflow-hidden text-white bg-blackout">
 
+  <div class="absolute inset-0 z-[-1] pointer-events-none" style="
+  background-image: repeating-linear-gradient(315deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 0px, transparent 50%);
+  background-size: 10px 10px;"></div>
+  
+  <!-- Oversized Top-Left Heading -->
+  <div class="absolute z-10 top-4 left-4 md:top-8 md:left-8">
+    <h2 class="text-4xl font-black leading-tight tracking-tight uppercase md:text-6xl text-light-pink">
+      What Our Clients Say
+    </h2>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative px-4 pt-32 mx-auto md:px-20 max-w-7xl">
     <div class="relative w-full max-w-full overflow-hidden">
       <div id="testimonialTrack" class="flex transition-transform duration-500 ease-in-out">
-        <!-- Each slide -->
-        <div class="flex-shrink-0 w-full px-4">
-          <div class="bg-gray-100 max-w-md min-h-[400px] mx-auto p-6 md:p-10 rounded-2xl shadow-lg text-center">
-            <p class="text-lg italic">“Exceptional service and compassion.”</p>
-            <p class="mt-4 font-semibold">— Sarah J.</p>
+        
+        <!-- Slide 1 -->
+        <div class="flex-shrink-0 w-full px-4"> 
+          <div class="bg-navy max-w-md min-h-[400px] mx-auto p-6 md:p-8 rounded-2xl shadow-lg text-justify outline outline-offset-4">
+            <p class="text-sm italic leading-8 text-off-white">
+              "After a long battle to gain custody of my granddaughter...
+            </p>
+            <p class="mt-4 font-semibold text-off-white">— A. Walker</p>
           </div>
         </div>
 
+        <!-- Slide 2 -->
         <div class="flex-shrink-0 w-full px-4">
-          <div class="bg-gray-100 max-w-md min-h-[400px] mx-auto p-6 md:p-10 rounded-2xl shadow-lg text-center">
-            <p class="text-lg italic">“Helped us through a very difficult time.”</p>
-            <p class="mt-4 font-semibold">— Michael L.</p>
+          <div class="bg-gray-100 max-w-md min-h-[400px] mx-auto p-6 md:p-10 rounded-2xl shadow-lg text-justify text-black">
+            <p class="text-sm italic">
+              “Tamara went above and beyond for me...
+            </p>
+            <p class="mt-4 font-semibold">— J. Kenney</p>
           </div>
         </div>
 
+        <!-- Slide 3 -->
         <div class="flex-shrink-0 w-full px-4">
-          <div class="bg-gray-100 max-w-md min-h-[400px] mx-auto p-6 md:p-10 rounded-2xl shadow-lg text-center">
-            <p class="text-lg italic">“Testing 1-2 Testing 1-2”</p>
-            <p class="mt-4 font-semibold">— John Doe</p>
+          <div class="bg-gray-100 max-w-md min-h-[400px] mx-auto p-6 md:p-10 rounded-2xl shadow-lg text-justify text-black">
+            <p class="text-sm italic">
+              "I spent months trying to go through the courts...
+            </p>
+            <p class="mt-4 font-semibold">— N. Wood</p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Nav Buttons -->
     <div class="mt-6 space-x-4 text-center">
       <button id="prev" class="px-4 py-2 bg-[#44475b] rounded">←</button>
       <button id="next" class="px-4 py-2 bg-[#44475b] rounded">→</button>
     </div>
   </div>
 </section>
+
 
 
     
