@@ -116,3 +116,27 @@ track.addEventListener('touchend', e => {
     updateSlidePosition();
   }
 });
+
+
+// Testimonial Text
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-up");
+            entry.target.classList.remove("opacity-0", "translate-y-4");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    );
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  });
