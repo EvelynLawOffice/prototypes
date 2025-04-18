@@ -56,24 +56,37 @@ const track = document.getElementById('testimonialTrack');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 
-let index = 0;
-const slides = track.children;
+const slides = Array.from(track.children);
 const total = slides.length;
+let index = 0;
+
+// Dynamically set track width
+track.style.width = `${total * 100}%`;
+
+// Ensure each slide is 100% of the container width
+slides.forEach(slide => {
+  slide.style.width = `${100 / total}%`;
+});
 
 function updateSlidePosition() {
-  track.style.transform = `translateX(-${index * 100}%)`;
+  track.style.transform = `translateX(-${index * (100 / total)}%)`;
 }
 
 prev.addEventListener('click', () => {
-  index = (index - 1 + total) % total;
-  updateSlidePosition();
+  if (index > 0) {
+    index--;
+    updateSlidePosition();
+  }
 });
 
 next.addEventListener('click', () => {
-  index = (index + 1) % total;
-  updateSlidePosition();
+  if (index < total - 1) {
+    index++;
+    updateSlidePosition();
+  }
 });
 
+// Swipe support
 let startX = 0;
 let isSwiping = false;
 
@@ -94,11 +107,12 @@ track.addEventListener('touchend', e => {
   const endX = e.changedTouches[0].clientX;
   const delta = startX - endX;
 
-  if (delta > 50) {
-    index = (index + 1) % total;
+  if (delta > 50 && index < total - 1) {
+    index++;
     updateSlidePosition();
-  } else if (delta < -50) {
-    index = (index - 1 + total) % total;
+  }
+  if (delta < -50 && index > 0) {
+    index--;
     updateSlidePosition();
   }
 });
