@@ -60,43 +60,31 @@ const slides = Array.from(track.children);
 const total = slides.length;
 let index = 0;
 
-// Dynamically set track width
+// Set track width and each slide’s width
 track.style.width = `${total * 100}%`;
-
-// Ensure each slide is 100% of the container width
 slides.forEach(slide => {
   slide.style.width = `${100 / total}%`;
 });
-
-
 
 function updateSlidePosition() {
   track.style.transform = `translateX(-${index * (100 / total)}%)`;
 }
 
 next.addEventListener('click', () => {
-  if (index < dotElements.length) {
-    const targetDotIndex = dotElements.length - 1 - index;
-    animateDot(targetDotIndex, 'right');
+  if (index < total - 1) {
     index++;
     updateSlidePosition();
   }
 });
 
-
 prev.addEventListener('click', () => {
   if (index > 0) {
     index--;
-    const targetDotIndex = dotElements.length - 1 - index;
-    animateDot(targetDotIndex, 'left');
     updateSlidePosition();
   }
 });
 
-
-
-
-// Swipe support
+// Swipe Support
 let startX = 0;
 let isSwiping = false;
 
@@ -150,53 +138,4 @@ track.addEventListener('touchend', e => {
       observer.observe(el);
     });
   });
-
-  // Testimonial Dot Animation
-const dotTrail = document.getElementById("dotTrail");
-const dotCount = total - 1;
-let dotElements = [];
-
-// Create and append dots
-function initDots() {
-  dotTrail.innerHTML = '';
-  dotElements = [];
-
-  for (let i = 0; i < dotCount; i++) {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'relative w-4 h-4 overflow-visible';
-  
-    const dot = document.createElement('div');
-    dot.className = 'w-3 h-3 transition-transform duration-700 ease-out rounded-full bg-light-pink';
-    dot.style.transform = 'translateX(0px)';
-  
-    wrapper.appendChild(dot);
-    dotTrail.appendChild(wrapper);
-    dotElements.push(dot); // Push only the INNER dot for animation
-  }  
-}
-
-console.log("initDots ran, total:", dotCount);
-
-// Animate dot to right or back to left
-function animateDot(index, direction) {
-  const dot = dotElements[index];
-  if (!dot) return;
-
-  const rightmostPosition = 320; // confirmed good landing spot for rightmost dot
-  const spacing = 0;            // tighter visual spacing between dots
-  const destination = rightmostPosition - (index * spacing);
-
-  dot.style.transform =
-    direction === 'right'
-      ? `translateX(${destination}px)`
-      : `translateX(0px)`;
-}
-
-
-
-// ✅ Call initDots AFTER the DOM is loaded
-window.addEventListener('DOMContentLoaded', () => {
-  initDots();
-});
-
 
