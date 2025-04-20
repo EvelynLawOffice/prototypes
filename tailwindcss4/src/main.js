@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
 
           // Toggle menu and backdrop visibility
         toggleBtn.addEventListener('click', () => {
-        const isOpen = menu.classList.contains('flex');
+        menu.classList.contains('flex');
         menu.classList.toggle('hidden');
         menu.classList.toggle('flex');
         backdrop.classList.toggle('hidden');
@@ -137,5 +137,21 @@ track.addEventListener('touchend', e => {
     document.querySelectorAll('.fade-on-scroll').forEach(el => {
       observer.observe(el);
     });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-x-[100px]');
+          entry.target.classList.add('animate-slide-in-right');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+  
+    document.querySelectorAll('.bio-image-scroll').forEach(el => observer.observe(el));
   });
 
