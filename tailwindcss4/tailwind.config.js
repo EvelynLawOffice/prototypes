@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // adjust if you're not using JSX/TSX
   ],
   theme: {
     extend: {
@@ -11,6 +11,7 @@ export default {
         serif: ['Merriweather', 'serif'],
         display: ['Space Grotesk', 'sans-serif'],
         body: ['Open Sans', 'sans-serif'],
+        slab: ['Cormorant+SC', 'serif'],
       },
       colors: {
         primary: '#f8d6d3',
@@ -47,3 +48,4 @@ export default {
   },
   plugins: [],
 }
+
