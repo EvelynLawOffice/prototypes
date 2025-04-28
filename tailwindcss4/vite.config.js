@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-    plugins: [
-        tailwindcss(),
-      ],
+  base: './',  // <-- ADD THIS FOR PATHS
+  plugins: [
+    tailwindcss(),
+  ],
 })
