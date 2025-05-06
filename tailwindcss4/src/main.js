@@ -13,7 +13,6 @@ AOS.init({
   offset: 50,
 })
 
-
 // Optional refresh shortly after load to catch Alpine content
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -22,34 +21,40 @@ window.addEventListener('load', () => {
 })
 
 // JavaScript to toggle menu
+window.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('mobile-backdrop');
 
-        const toggleBtn = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const backdrop = document.getElementById('mobile-backdrop');
+  if (toggleBtn && menu && backdrop) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
 
-          // Toggle menu and backdrop visibility
-        toggleBtn.addEventListener('click', () => {
-        menu.classList.contains('flex');
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-        backdrop.classList.toggle('hidden');
-        });
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      backdrop.classList.toggle('hidden');
+      toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
 
-          // Close menu when clicking on a nav link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
         menu.classList.add('hidden');
         menu.classList.remove('flex');
         backdrop.classList.add('hidden');
-        });
-        });
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-          // Optional: close menu if backdrop is clicked
-        backdrop.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
-        backdrop.classList.add('hidden');
-        });
+    // Optional: close menu if backdrop is clicked
+    backdrop.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      backdrop.classList.add('hidden');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+  }
+});
 
 // Testimonial Section
 const track = document.getElementById('testimonialTrack');
@@ -115,7 +120,6 @@ track.addEventListener('touchend', e => {
   }
 });
 
-
 // Testimonial Text
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(
@@ -151,7 +155,6 @@ track.addEventListener('touchend', e => {
     }, {
       threshold: 0.3
     });
-  
+
     document.querySelectorAll('.bio-image-scroll').forEach(el => observer.observe(el));
   });
-
