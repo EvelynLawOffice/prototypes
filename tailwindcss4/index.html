@@ -22,7 +22,7 @@
         <!-- Logo -->
         <a href="/" class="flex items-center space-x-2">
           <img src="/img/symbol-white.png" alt="Evelyn Law Firm Logo" class="w-auto h-10" />
-          <span class="hidden text-2xl font-slab text-off-white small-caps md:inline-block">
+          <span class="hidden text-2xl font-slab text-light-pink small-caps md:inline-block">
             Evelyn Law</span
           >
         </a>
@@ -50,12 +50,12 @@
         <div class="hidden space-x-6 md:flex">
           <a
             href="https://www.facebook.com/people/Evelyn-Law/100093140401176/"
-            class="text-off-white hover:text-blue-400"
+            class="text-light-pink hover:text-blue-400"
             >Facebook</a
           >
           <a
             href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F"
-            class="text-off-white hover:text-blue-400"
+            class="text-light-pink hover:text-blue-400"
             >Linkedin</a
           >
           <!-- <a href="#" class="text-off-white hover:text-blue-400">Contact</a> -->
@@ -96,32 +96,31 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen px-6 overflow-hidden">
-      <img
+    <section class="relative min-h-[70vh] md:min-h-[80vh] px-6 overflow-hidden bg-[url(src/img/herobg9.png)] bg-no-repeat bg-center bg-cover">
+      <!-- <img 
         src="src/img/symbol-black.png"
         alt="Background Logo"
         class="pointer-events-none z-0 hidden max-w-[450px] md:absolute md:top-20 md:right-[100px] md:block md:[opacity:0.10]"
-      />
+      /> -->
 
-      <div
-        class="outline outline-pink-600 relative z-10 grid items-center mx-auto mt-12 max-w-8xl gap-14 md:mt-20 md:grid-cols-2"
+      <div 
+        class="relative z-10 grid items-center mx-auto mt-12 md:max-w-[90vw] gap-14 md:mt-20 md:grid-cols-2"
       >
         <div class="p-1.5 text-center md:text-left">
           <span
-            class="block mb-4 text-5xl font-semibold font-slab text-light-pink small-caps whitespace-nowrap md:mb-1 md:text-8xl"
+            class="block mb-4 text-5xl font-semibold font-slab text-light-pink small-caps whitespace-nowrap md:mb-1 md:text-9xl"
           >
             Evelyn Law
           </span>
 
           <h2
-            class="mt-6 mb-8 text-2xl font-semibold leading-snug tracking-wide text-transparent uppercase from-off-white to-light-pink bg-gradient-to-t bg-clip-text md:text-5xl"
+            class="mt-6 mb-8 md:text-[2rem] font-semibold leading-snug tracking-wide text-light-pink"
           >
-            Family Law &<br />
-            Personal Injury Attorney
+            Family Law & Personal Injury Attorney
           </h2>
 
           <p
-            class="text-sm font-assistant text-light-pink  mb-10 max-w-sm md:text-left leading-relaxed md:max-w-lg md:border-l-[1px] md:border-dotted md:px-3 md:text-lg"
+            class="md:max-w-prose text-sm md:text-[1.2rem] font-assistant text-light-pink  mb-10 max-w-sm md:text-left leading-relaxed md:max-w-lg md:border-l-[1px] md:border-dotted md:px-3"
           >
             We are dedicated to providing compassionate, skilled, and results-driven legal
             representation in Family Law, Personal Injury, and Immigration Law.
@@ -419,26 +418,26 @@
 
     <!-- Headshot Modal -->
 
-    <section id="about-evelyn" class="relative px-6 py-24 overflow-hidden text-white bg-blackout">
+    <section id="about-evelyn" class="relative px-6 py-24 overflow-hidden text-white bg-light-pink">
       <div
         class="flex flex-col-reverse items-center max-w-5xl gap-10 p-10 mx-auto border-dotted bg-navy rounded-2xl border-1 md:flex-row"
         data-aos="fade-left"
         data-aos-delay="200"
       >
         <!-- Text Block -->
-        <div class="text-justify md:w-1/2">
-          <h2 class="mb-4 text-xl font-bold text-center text-light-pink md:text-right md:text-4xl">
+        <div class="max-w-prose">
+          <h2 class="mb-4 text-xl font-bold text-center text-light-pink md:text-left md:text-4xl">
             Attorney Tamara Evelyn
           </h2>
           <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-          <p class="mb-6 text-sm leading-relaxed text-off-white">
+          <p class="text-center md:text-left text-sm md:text-sm mb-6 leading-relaxed text-off-white">
             With a client-centered approach, I am deeply committed to understanding the unique
             challenges you face. Whether it's a sensitive family law matter or a life-altering
             injury, I take the time to listen and tailor my legal strategies to your needs. I work
             diligently to deliver the best possible outcomes while offering support and guidance
             throughout every step of the legal process.
           </p>
-          <p class="text-sm leading-relaxed text-off-white md:text-sm">
+          <p class="text-center md:text-left text-sm md:text-sm leading-relaxed text-off-white">
             Evelyn Law assists clients with a variety of family law matters including representation
             for Child Custody, Child Support, Paternity Actions, Divorce, Spousal Support (alimony),
             Domestic Violence Restraining Orders, and Guardianship Petitions.
@@ -447,7 +446,7 @@
         </div>
 
         <!-- Headshot container -->
-        <div class="relative flex justify-center md:w-1/2 md:justify-center">
+        <div class="relative flex justify-center md:w-2/4 md:justify-center">
           <img
             src="/src/img/headshot-round.png"
             alt="Attorney Evelyn Headshot"
@@ -616,7 +615,7 @@
 
     <footer class="px-6 py-12 bg-blackout text-off-white md:px-20">
       <div
-        class="flex flex-col items-center justify-between gap-8 mx-auto text-sm max-w-7xl md:flex-row"
+        class="flex flex-col items-center justify-between gap-8 mx-auto text-sm max-w-8xl md:flex-row"
       >
         <!-- Firm Name -->
         <div class="flex items-center space-x-3">
