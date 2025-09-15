@@ -123,7 +123,7 @@
             class="md:max-w-prose text-sm md:text-[1.2rem] font-assistant text-light-pink  mb-10 max-w-sm md:text-left leading-relaxed md:max-w-lg md:border-l-[1px] md:border-dotted md:px-3"
           >
             We are dedicated to providing compassionate, skilled, and results-driven legal
-            representation in Family Law, Personal Injury, and Immigration Law.
+            representation in Family Law, Personal Injury, and Housing Law.
           </p>
 
           <button
@@ -207,7 +207,7 @@
           </p>
         </div>
 
-        <!-- Immigration Law -->
+        <!-- Housing Law -->
         <div
           class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           data-aos="fade-up"
@@ -216,13 +216,12 @@
           <h3
             class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
           >
-            Immigration Law
+            Housing Law
           </h3>
           <p class="text-sm leading-relaxed text-ember text-muted">
-            Assisting clients with family-based immigration petitions, adjustment of status,
-            naturalization, and deportation defense. Whether you're seeking to reunite with loved
-            ones, secure your residency, or protect your rights, we are here to guide you through
-            every step of the immigration process.
+            Attorney Evelyn represents landlords in eviction and housing matters, including nonpayment, lease violations, and property recovery. 
+            Results-driven representation to help landlords maintain control of their property, 
+            recover unpaid rent, and resolve disputes efficiently.
           </p>
         </div>
       </div>
@@ -237,21 +236,18 @@
     >
       <div class="max-w-3xl mx-auto">
         <!-- Tabs Setup-->
-        <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
-          <template x-for="category in ['family', 'injury', 'immigration']">
-            <button
-              transition-all
-              duration-300
-              ease-in-out
-              border-b-2
-              @click="tab = category; $nextTick(() => AOS.refresh())"
-              :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'"
-              class="pb-2 text-lg font-semibold capitalize transition-colors duration-300"
-            >
-              <span x-text="category + ' Law'"></span>
-            </button>
-          </template>
-        </div>
+        <!-- Tabs Setup -->
+    <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
+      <template x-for="category in ['family', 'injury', 'housing']">
+        <button
+          @click="tab = category; $nextTick(() => AOS && AOS.refresh && AOS.refresh())"
+          :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'"
+          class="pb-2 text-lg font-semibold capitalize transition-colors duration-300"
+        >
+          <span x-text="category + ' Law'"></span>
+        </button>
+      </template>
+    </div>
 
         <!-- Family Law Tab -->
         <div
@@ -365,62 +361,57 @@
           </div>
         </div>
 
-        <!-- Immigration Law Tab -->
+        <!-- Housing Law Tab -->
         <div
-          x-show="tab === 'immigration'"
-          x-cloak
-          class="relative"
-          data-aos="fade-right"
-          data-aos-duration="700"
-        >
-          <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-            <!-- Image -->
-            <div class="flex-shrink-0 w-full md:mt-6 md:w-1/3">
-              <div
-                class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight"
-              >
-                <img
-                  src="src/img/immigration.JPG"
-                  alt="Paper cut-out family, judges gavel, scales of justice"
-                  class="h-auto max-w-full"
-                />
-              </div>
-            </div>
+  x-show="tab === 'housing'"
+  x-cloak
+  class="relative"
+  data-aos="fade-right"
+  data-aos-duration="700"
+>
+  <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+    <!-- Image -->
+    <div class="flex-shrink-0 w-full md:mt-6 md:w-1/3">
+      <div class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight">
+        <img
+          src="src/img/housing-law.jpg"
+          alt="Keys, lease, and housing forms"
+          class="h-auto max-w-full"
+        />
+      </div>
+    </div>
 
             <!-- Text -->
-            <div class="w-full md:w-2/3">
-              <h3 class="mb-2 text-2xl font-bold text-midnight">Immigration Law</h3>
-              <p
-                class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted"
-              >
-                We provide comprehensive immigration services to help clients navigate the complex
-                and often overwhelming U.S. immigration system. Whether you are seeking to reunite
-                with loved ones, secure legal status, or defend against removal, we are here to
-                provide the support and expertise you need.
-              </p>
+    <div class="w-full md:w-2/3">
+      <h3 class="mb-2 text-2xl font-bold text-midnight">Housing Law</h3>
+      <p class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted">
+        Skilled representation to landlords in eviction and housing matters throughout Massachusetts. 
+        She understands the challenges property owners face and works to enforce landlord rights while ensuring compliance with the law.
+        Landlords deserve strong, fair advocacy to protect their investment and maintain their rental property.
+      </p>
 
-              <div class="space-y-5">
-                <div class="pl-4 border-l-4 border-midnight">
-                  <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-                    <li>Family-Based Immigration</li>
-                    <li>Naturalization and Citizenship</li>
-                    <li>Deferred Action and Humanitarian Relief</li>
-                    <li>Removal Defense</li>
-                    <li>Work Visas and Employment-Based Immigration</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="space-y-5">
+        <div class="pl-4 border-l-4 border-midnight">
+          <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
+            <li>Filing and prosecuting eviction cases</li>
+            <li>Drafting, reviewing, and enforcing lease agreements</li>
+            <li>Recovering possession of rental property</li>
+            <li>Negotiating tenant settlements to avoid unnecessary delays or costs</li>
+            <li>Discrimination & reasonable accommodations</li>
+            <li>Lockouts, utility shutoffs, and retaliation</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <!-- Headshot Modal -->
 
-    <section id="about-evelyn" class="relative px-6 py-24 overflow-hidden text-white bg-light-pink">
+    <section id="about-evelyn" class="relative px-6 py-24 overflow-hidden text-white bg-navy">
       <div
-        class="flex flex-col-reverse items-center max-w-5xl gap-10 p-10 mx-auto border-dotted bg-navy rounded-2xl border-1 md:flex-row"
+        class="flex flex-col-reverse items-center max-w-5xl gap-10 p-10 mx-auto border-dotted bg-[#282531] rounded-2xl border-1 md:flex-row"
         data-aos="fade-left"
         data-aos-delay="200"
       >
@@ -595,6 +586,40 @@
                   <p class="mt-2 font-semibold text-right text-light-pink">— R. Clapp</p>
                 </div>
               </div>
+              <!-- Slide 6 -->
+              <div class="flex-shrink-0 w-full px-4">
+                <div
+                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                >
+                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
+                  <p class="text-sm italic leading-7 text-off-white">
+                    “I thank God for my lawyer, Mrs. Evelyn. It’s has been a long battle, when things got harder, she lifted me up. 
+                    Best lawyer in the world. Today I have my 10 year old daughter living with me. Custody I have. 
+                    Two bedroom apartment for me and my beautiful daughter. It’s not easy. 
+                    Mrs. Evelyn told me it would not be. I’m very blessed and wanted to thank her for all her hard work. 
+                    And prayers. Best lawyer in the world. Thank you so much. God bless you and your family."
+                  </p>
+                  <hr class="w-full my-3 border-0 border-t border-dotted border-light-pink" />
+                  <p class="mt-2 font-semibold text-right text-light-pink">— S. Victorian</p>
+                </div>
+              </div>
+              <!-- Slide 7 -->
+              <div class="flex-shrink-0 w-full px-4">
+                <div
+                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                >
+                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
+                  <p class="text-sm italic leading-7 text-off-white">
+                    “I can’t recommend Tamara highly enough. From the very beginning, she was incredibly empathetic, taking the time to truly understand my situation 
+                    and making me feel heard and supported. Legal matters can be overwhelming, but she broke everything down in a 
+                    way that was clear, simple, and easy to follow. Her calm and compassionate approach made a stressful time 
+                    much more manageable. If you’re looking for someone who combines professionalism with genuine care, she’s 
+                    the one you want by your side.”
+                  </p>
+                  <hr class="w-full my-3 border-0 border-t border-dotted border-light-pink" />
+                  <p class="mt-2 font-semibold text-right text-light-pink">—  N. Sequeira</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -617,7 +642,7 @@
       <div
         class="flex flex-col items-center justify-between gap-8 mx-auto text-sm max-w-8xl md:flex-row"
       >
-        <!-- Firm Name -->
+        <!-- Firm Practices -->
         <div class="flex items-center space-x-3">
           <div class="text-center md:text-left">
             <p class="p-1 text-base border-b border-dotted border-light-pink opacity-60">
@@ -636,31 +661,39 @@
 
         <div class="space-y-1 text-center md:text-right">
           <p class="text-lg font-bold opacity-100 small-caps font-slab text-light-pink">
+            Tamara Evelyn, Esq.<br />
             Evelyn Law Office
           </p>
           <p class="opacity-60">71 Legion Pkwy, Suite 16</p>
           <p class="opacity-60">Brockton, MA, 02301-7225</p>
           <p class="opacity-60">
-            Phone:
-            <a href="tel:15551234567" class="hover:text-light-pink">508-521-9020</a>
+            Cell:
+            <a href="tel:15551234567" class="hover:text-light-pink">508-208-0254</a>
           </p>
-          <!-- <p class="opacity-60">
-            Email:
-            <a href="mailto:hello@evelynlaw.com" class="hover:text-light-pink">hello@evelynlaw.com</a>
-          </p> -->
+          <p class="opacity-60">
+            <a href="mailto:evelynlaw2@gmail.com" class="hover:text-light-pink">evelynlaw2@gmail.com
+</a>
+          </p>
         </div>
         <div class="border-b border-dotted border-light-pink w-33 opacity-60 md:hidden"></div>
       </div>
 
-      <!-- Legal Footer (Optional) -->
-      <div class="mt-8 text-xs text-center opacity-50">
-        <p>© 2025 Evelyn Law Office. All rights reserved.</p>
-        <!-- <p>
-          <a href="#" class="hover:text-light-pink">Privacy Policy</a> •
-          <a href="#" class="hover:text-light-pink">Terms of Service</a>
-        </p> -->
-      </div>
-    </footer>
+ </footer>
+
+<!-- Legal Footer -->
+<div class="mx-auto max-w-5xl md:max-w-5xl px-6 py-8 text-center text-[0.65rem] leading-relaxed opacity-80 text-off-white">
+  <p class="mb-2 text-[.9rem]">© 2025 Evelyn Law Office. All rights reserved.</p>
+   <!-- Divider -->
+<hr class="mx-auto my-3 w-full max-w-6xl border-0 border-t border-dotted border-light-pink/50" />
+  <p class="hyphens-auto">
+    Disclaimer: The information you obtain at this site is not, nor is it intended to be, legal advice.
+    You should consult an attorney for advice regarding your situation. We invite you to contact us
+    and welcome your calls, letters, and electronic mail. Contacting us does not create an
+    attorney–client relationship. Please do not send any confidential information to us until an
+    attorney–client relationship has been established.
+  </p>
+</div>
+   
 
     <script type="module" src="/src/main.js"></script>
   </body>
