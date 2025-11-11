@@ -1,49 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather&family=Open+Sans&family=Space+Grotesk:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer utilities {
-  .small-caps {
-    font-variant: small-caps;
-  }
-  .debug-box {
-    outline: 1px solid magenta;
-    outline-offset: -1px; /* Keeps it flush with the element */
-    background-color: rgba(255, 0, 255, 0.07); /* translucent pink for visibility */
-  }
+    .small-caps {
+        font-variant: small-caps;
+    }
+    .debug-box {
+        outline: 1px solid magenta;
+        outline-offset: -1px; /* Keeps it flush with the element */
+        background-color: rgba(255, 0, 255, 0.07); /* translucent pink for visibility */
+    }
 }
 
 [x-cloak] {
-  display: none !important;
+    display: none !important;
 }
 
 @theme {
-  --font-roboto: "Roboto", sans-serif; 
-  --font-alumni: "Alumni Sans Pinstripe", sans-serif;
-  --font-assistant: "Assistant", sans-serif;
-  --font-slab: "Cormorant+SC", serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-alumni: 'Alumni Sans Pinstripe', sans-serif;
+    --font-assistant: 'Assistant', sans-serif;
+    --font-slab: 'Cormorant+SC', serif;
 
-  --color-light-pink: #f6c2bf;
-  --color-ember: #322c33;
-  --color-midnight: #181920;
-  --color-off-white: #f8faf9;
-  --color-blackout: #030712;
-  --color-navy: #141621;
-  --color-grayish: #1D202A;
-  }
+    --color-light-pink: #f6c2bf;
+    --color-ember: #322c33;
+    --color-midnight: #181920;
+    --color-off-white: #f8faf9;
+    --color-blackout: #030712;
+    --color-navy: #141621;
+    --color-grayish: #1d202a;
+}
 
-  @keyframes fade-up {
+@keyframes fade-up {
     from {
-      opacity: 0;
-      transform: translateY(1rem);
+        opacity: 0;
+        transform: translateY(1rem);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
-  .animate-fade-up {
+}
+
+.animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
-  }
+}
