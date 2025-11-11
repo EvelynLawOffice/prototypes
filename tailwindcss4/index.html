@@ -432,49 +432,62 @@
         </section>
 
         <!-- About / Headshot -->
-        <section id="about-evelyn" class="bg-navy relative overflow-hidden px-6 py-24 text-white">
+        <section
+            id="about-evelyn"
+            aria-labelledby="about-heading"
+            class="bg-navy relative overflow-hidden px-6 py-20 text-white md:py-24"
+        >
             <div
-                class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-10 rounded-2xl border-1 border-dotted bg-[#282531] p-10 md:flex-row"
+                class="mx-auto flex max-w-5xl flex-col items-center gap-8 rounded-2xl bg-[#282531] p-8 md:flex-row md:gap-10 md:p-10"
                 data-aos="fade-left"
                 data-aos-delay="200"
             >
-                <!-- Text Block -->
-                <div class="max-w-prose">
-                    <h2
-                        class="text-light-pink mb-4 text-center text-xl font-bold md:text-left md:text-4xl"
-                    >
-                        Attorney Tamara Evelyn
-                    </h2>
-                    <hr class="border-light-pink my-4 w-full border-0 border-t border-dotted" />
-                    <p
-                        class="text-off-white mb-6 text-center text-sm leading-relaxed md:text-left md:text-sm"
-                    >
-                        With a client-centered approach, I am deeply committed to understanding the
-                        unique challenges you face. Whether it's a sensitive family law matter or a
-                        life-altering injury, I take the time to listen and tailor my legal
-                        strategies to your needs. I work diligently to deliver the best possible
-                        outcomes while offering support and guidance throughout every step of the
-                        legal process.
-                    </p>
-                    <p
-                        class="text-off-white text-center text-sm leading-relaxed md:text-left md:text-sm"
-                    >
-                        Evelyn Law assists clients with a variety of family law matters including
-                        representation for Child Custody, Child Support, Paternity Actions, Divorce,
-                        Spousal Support (alimony), Domestic Violence Restraining Orders, and
-                        Guardianship Petitions.
-                    </p>
-                    <hr class="border-light-pink my-4 w-full border-0 border-t border-dotted" />
-                </div>
-
                 <!-- Headshot -->
-                <div class="relative flex justify-center md:w-2/4 md:justify-center">
+                <div class="relative flex justify-center md:order-2 md:w-2/5 md:justify-center">
                     <img
                         src="/src/img/headshot-round.png"
-                        alt="Attorney Evelyn Headshot"
-                        class="border-light-pink h-40 w-40 rounded-full border-4 object-cover shadow-lg shadow-pink-200/50 md:h-56 md:w-56"
+                        alt="Attorney Tamara Evelyn headshot"
+                        class="border-light-pink h-36 w-36 rounded-full border-4 object-cover shadow-lg shadow-pink-200/50 md:h-65 md:w-65"
                         loading="lazy"
+                        width="224"
+                        height="224"
                     />
+                </div>
+
+                <!-- Text -->
+                <div class="md:order-1 md:w-3/5">
+                    <div
+                        class="text-off-white mx-auto mt-0 max-w-[65ch] text-center md:max-w-[55ch] md:text-left"
+                    >
+                        <h2
+                            id="about-heading"
+                            class="font-slab text-light-pink text-center text-2xl font-bold text-balance md:text-left md:text-4xl"
+                        >
+                            Attorney Tamara Evelyn
+                        </h2>
+
+                        <hr
+                            class="border-light-pink mt-4 mb-6 w-full border-0 border-t border-dotted"
+                        />
+
+                        <div class="space-y-5 text-[1rem] leading-[1.75] text-balance">
+                            <p>
+                                With a client-centered approach, I’m committed to understanding the
+                                unique challenges you face. Whether it’s a sensitive family matter
+                                or a life-altering injury, I listen first and tailor strategies to
+                                your needs—working diligently to deliver the best possible outcome
+                                while supporting you at every step.
+                            </p>
+
+                            <p>
+                                Evelyn Law assists clients with Child Custody, Child Support,
+                                Paternity Actions, Divorce, Spousal Support (alimony), Domestic
+                                Violence Restraining Orders, and Guardianship Petitions.
+                            </p>
+                        </div>
+
+                        <hr class="border-light-pink mt-6 w-full border-0 border-t border-dotted" />
+                    </div>
                 </div>
             </div>
         </section>
