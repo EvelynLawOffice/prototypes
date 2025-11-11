@@ -1,650 +1,830 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Evelyn Law</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <!-- <link href="/src/styles.css" rel="stylesheet"> -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-      [x-cloak] {
-        display: none;
-      }
-    </style>
-  </head>
-  <body class="antialiased text-gray-900 bg-navy">
-    <!--Logo Section-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Evelyn Law</title>
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <style>
+            [x-cloak] {
+                display: none;
+            }
+            /* Optional: prevent layout shift when scroll locking on mobile menu */
+            .overflow-hidden-touch {
+                overflow: hidden;
+                touch-action: none;
+            }
+        </style>
+    </head>
+    <body class="bg-navy text-gray-900 antialiased">
+        <!-- Navbar -->
+        <nav class="bg-ember relative z-50 rounded border border-gray-200 px-4 py-2.5 shadow">
+            <div class="max-w-8xl mx-auto flex w-full items-center justify-between md:px-6">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2">
+                    <img
+                        src="/img/symbol-white.png"
+                        alt="Evelyn Law Firm Logo"
+                        class="h-10 w-auto"
+                    />
+                    <span
+                        class="font-slab text-light-pink small-caps hidden text-2xl md:inline-block"
+                        >Evelyn Law</span
+                    >
+                </a>
 
-    <!-- Navbar -->
-    <nav class="bg-ember relative z-50 rounded border border-gray-200 px-4 py-2.5 shadow">
-      <div class="flex items-center justify-between w-full mx-auto max-w-7xl">
-        <!-- Logo -->
-        <a href="/" class="flex items-center space-x-2">
-          <img src="/img/symbol-white.png" alt="Evelyn Law Firm Logo" class="w-auto h-10" />
-          <span class="hidden text-2xl font-slab text-off-white md:inline-block small-caps">
-          Evelyn Law</span>
-        </a>
+                <!-- Hamburger Button -->
+                <div class="z-50 md:hidden">
+                    <button
+                        id="menu-toggle"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu"
+                        class="text-off-white focus:ring-light-pink rounded-lg p-2 focus:ring-2"
+                        type="button"
+                    >
+                        <svg
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        </svg>
+                        <span class="sr-only">Open menu</span>
+                    </button>
+                </div>
 
-        <!-- Hamburger Button -->
-        <div class="z-50 md:hidden">
-          <button
-            id="menu-toggle"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
-            class="p-2 rounded-lg text-off-white focus:ring-light-pink focus:ring-2"
-          >
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Desktop Nav (optional, keep or remove) -->
-        <div class="hidden space-x-6 md:flex">
-          <a
-            href="https://www.facebook.com/people/Evelyn-Law/100093140401176/"
-            class="text-off-white hover:text-blue-400"
-            >Facebook</a
-          >
-          <a
-            href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F"
-            class="text-off-white hover:text-blue-400"
-            >Linkedin</a
-          >
-          <!-- <a href="#" class="text-off-white hover:text-blue-400">Contact</a> -->
-        </div>
-      </div>
-
-      <!-- Mobile Backdrop -->
-      <div
-        id="mobile-backdrop"
-        class="fixed inset-0 z-40 hidden transition-opacity duration-300 bg-white/30 backdrop-blur-sm md:hidden"
-      ></div>
-
-      <!-- Mobile Dropdown -->
-      <div
-        id="mobile-menu"
-        class="absolute top-full left-0 z-50 hidden w-full flex-col items-center space-y-4 bg-[#282828bf] px-6 py-6 shadow-md transition-all duration-300 ease-out md:hidden"
-      >
-        <!-- Frosted Glass Backdrop -->
-
-        <a
-          href="https://www.facebook.com/people/Evelyn-Law/100093140401176/"
-          target="_blank"
-          class="w-full text-lg text-center text-off-white hover:text-blue-400"
-          >Facebook</a
-        >
-        <a
-          href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F"
-          target="_blank"
-          class="w-full text-lg text-center text-off-white hover:text-pink-400"
-          >Linkedin</a
-        >
-        <a
-          href="tel:+508.521.9020"
-          class="w-full text-lg text-center text-off-white hover:text-green-400"
-          >Call Us: 508.521.9020</a
-        >
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen px-6 overflow-hidden">
-      <img
-        src="src/img/symbol-black.png"
-        alt="Background Logo"
-        class="pointer-events-none z-0 hidden max-w-[450px] md:absolute md:top-20 md:right-[100px] md:block md:[opacity:0.10]"
-      />
-    
-      <div class="relative z-10 grid items-center mx-auto mt-12 max-w-7xl gap-14 md:mt-20 md:grid-cols-2">
-        <div class="p-1.5 md:pl-[80px]">
-          <span class="block md:mb-1 mb-6 text-6xl font-semibold underline underline-offset-10 decoration-[0.025px] decoration-light-pink/30 font-slab text-light-pink whitespace-nowrap md:text-8xl small-caps">
-            Evelyn Law
-          </span>
-          
-          <h2
-            class="mb-6 text-3xl font-semibold leading-tight text-transparent uppercase from-off-white to-light-pink bg-gradient-to-t bg-clip-text md:text-5xl"
-          >
-            Family Law & Personal Injury Attorney
-          </h2>
-    
-          <p class="max-w-md mb-10 text-justify text-md md:text-lg font-assistant text-light-pink md:max-w-lg">
-            We are dedicated to providing compassionate, skilled, and results-driven legal
-            representation in Family Law, Personal Injury, and Immigration Law.
-          </p>
-    
-          <button
-            class="mb-12 font-assistant text-light-pink rounded-md bg-gradient-to-r from-[#383037] to-[#27232d] px-6 py-3 shadow-sm shadow-pink-200/50 transition hover:bg-gray-800"
-          >
-            <a
-              href="mailto:evelynlaw2@gmail.com?subject=Consultation Request&body=Hi, I'm interested in a consultation..."
-              class="btn"
-            >
-              Request Consultation
-            </a>
-          </button>
-        </div>
-      </div>
-    </section>
-    
-
-    <!-- Practice Areas -->
-    <section class="relative z-10 px-6 py-16 overflow-hidden text-white bg-blackout md:px-20">
-      <!-- Grid pattern background -->
-      <div
-        class="pointer-events-none absolute inset-0 z-[-1]"
-        style="
-          background-image: repeating-linear-gradient(
-            315deg,
-            rgba(255, 255, 255, 0.08) 0px,
-            rgba(255, 255, 255, 0.08) 1px,
-            transparent 0px,
-            transparent 50%
-          );
-          background-size: 10px 10px;
-        "
-      ></div>
-
-      <!-- <div class="absolute inset-0 bg-gradient-to-tr from-[#1C1D25] to-transparent"></div> -->
-
-      <div class="relative z-10 mx-auto text-center mb-14 max-w-7xl">
-        <h2
-          class="mb-4 text-4xl font-black tracking-wide underline underline-offset-10 decoration-[1px] decoration-light-pink/30 uppercase font-assistant text-light-pink md:text-5xl"
-        >
-          Practice Areas
-        </h2>
-        <p
-        class="hidden max-w-xs mx-auto text-xs text-muted md:block md:max-w-2xl md:text-base" 
-        >
-          With years of experience advocating for clients in complex legal matters, we are committed
-          to delivering personalized solutions tailored to your unique needs.
-        </p>
-      </div>
-
-      <div class="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-        <!-- Family Law -->
-        <div
-          class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <h3
-            class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
-          >
-            Family Law
-          </h3>
-          <p class="text-sm leading-relaxed text-ember text-muted">
-            Offering comprehensive services in divorce, custody, child support, and modifications,
-            as well as expertise in guardianship and Care & Protection cases involving the
-            Department of Children and Families (DCF).
-          </p>
-        </div>
-
-        <!-- Personal Injury -->
-        <div
-          class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <h3
-            class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
-          >
-            Personal Injury
-          </h3>
-          <p class="text-sm leading-relaxed text-ember text-muted">
-            Dedicated legal support for injury victims—fighting for the compensation and recovery
-            you deserve.
-          </p>
-        </div>
-
-        <!-- Immigration Law -->
-        <div
-          class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          data-aos="fade-up"
-          data-aos-delay="250"
-        >
-          <h3
-            class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
-          >
-            Immigration Law
-          </h3>
-          <p class="text-sm leading-relaxed text-ember text-muted">
-            Assisting clients with family-based immigration petitions, adjustment of status,
-            naturalization, and deportation defense. Whether you're seeking to reunite with loved
-            ones, secure your residency, or protect your rights, we are here to guide you through
-            every step of the immigration process.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TABS PARENT -->
-    <section
-      x-data="{ tab: 'family' }"
-      :key="tab"
-      x-cloak
-      class="bg-off-white border-midnight border-t border-dotted px-6 py-20 text-[#4a3a2b] md:px-24"
-    >
-      <div class="max-w-3xl mx-auto">
-        <!-- Tabs Setup-->
-        <div class="flex justify-center pb-4 mb-10 space-x-6 border-b border-midnight">
-          <template x-for="category in ['family', 'injury', 'immigration']">
-            <button
-              transition-all
-              duration-300
-              ease-in-out
-              border-b-2
-              @click="tab = category; $nextTick(() => AOS.refresh())"
-              :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'"
-              class="pb-2 text-lg font-semibold capitalize transition-colors duration-300"
-            >
-              <span x-text="category + ' Law'"></span>
-            </button>
-          </template>
-        </div>
-
-        <!-- Family Law Tab -->
-        <div
-          x-show="tab === 'family'"
-          x-cloak
-          class="relative"
-          data-aos="fade-right"
-          data-aos-duration="700"
-        >
-          <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-            <!-- Image -->
-            <div class="flex-shrink-0 w-full md:mt-6 md:w-1/3">
-              <div
-                class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight"
-              >
-                <img
-                  src="src/img/family-law.jpg"
-                  alt="Paper cut-out family, judges gavel, scales of justice"
-                  class="h-auto max-w-full"
-                />
-              </div>
+                <!-- Desktop Nav -->
+                <div class="hidden space-x-6 md:flex">
+                    <a
+                        href="https://www.facebook.com/people/Evelyn-Law/100093140401176/"
+                        class="text-light-pink hover:text-blue-400"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Facebook</a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F"
+                        class="text-light-pink hover:text-blue-400"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >LinkedIn</a
+                    >
+                </div>
             </div>
 
-            <!-- Text -->
-            <div class="w-full md:w-2/3">
-              <h3
-                data-aos="fade-up"
-                data-aos-delay="100"
-                class="mb-2 text-2xl font-bold text-midnight"
-              >
-                Family Law
-              </h3>
-              <p
-                class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted"
-              >
-                Compassionate and strategic legal services tailored to your family’s
-                needs—supporting you through transitions with clarity and care.
-              </p>
+            <!-- Mobile Backdrop -->
+            <div
+                id="mobile-backdrop"
+                class="fixed inset-0 z-40 hidden bg-white/30 backdrop-blur-sm transition-opacity duration-300 md:hidden"
+            ></div>
 
-              <div class="space-y-5">
-                <div class="pl-4 border-l-4 border-midnight">
-                  <ul
+            <!-- Mobile Dropdown -->
+            <div
+                id="mobile-menu"
+                class="absolute top-full left-0 z-50 flex hidden w-full flex-col items-center space-y-4 bg-[#282828bf] px-6 py-6 shadow-md transition-all duration-300 ease-out md:hidden"
+            >
+                <a
+                    href="https://www.facebook.com/people/Evelyn-Law/100093140401176/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-off-white w-full text-center text-lg hover:text-blue-400"
+                    >Facebook</a
+                >
+                <a
+                    href="https://www.linkedin.com/in/tamaraevelyn?original_referer=https%3A%2F%2Fwww.google.com%2F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-off-white w-full text-center text-lg hover:text-pink-400"
+                    >LinkedIn</a
+                >
+                <a
+                    href="tel:+15085219020"
+                    class="text-off-white w-full text-center text-lg hover:text-green-400"
+                >
+                    Call Us: (508) 521-9020
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <header
+            id="hero"
+            class="relative min-h-[100svh] overflow-hidden bg-[url(/img/herobg9.png)] bg-cover bg-center bg-no-repeat px-6"
+        >
+            <div
+                class="relative z-10 mx-auto grid items-center gap-14 py-12 md:max-w-[90vw] md:grid-cols-2 md:py-20"
+            >
+                <div class="p-1.5 text-center md:text-left">
+                    <h1
+                        class="font-slab text-light-pink small-caps mb-4 block text-5xl font-semibold whitespace-nowrap md:mb-1 md:text-9xl"
+                    >
+                        Evelyn Law
+                    </h1>
+
+                    <p
+                        class="text-light-pink mt-6 mb-8 leading-snug font-semibold tracking-wide md:text-[2rem]"
+                    >
+                        Family Law &amp; Personal Injury Attorney
+                    </p>
+
+                    <p
+                        class="font-assistant text-light-pink mb-20 max-w-sm text-sm leading-relaxed md:max-w-lg md:max-w-prose md:border-l-[1px] md:border-dotted md:px-3 md:text-left md:text-[1.2rem]"
+                    >
+                        We are dedicated to providing compassionate, skilled, and results-driven
+                        legal representation in Family Law, Personal Injury, and Housing Law.
+                    </p>
+
+                    <a
+                        href="mailto:info.evelynlawoffice@gmail.com?subject=Consultation%20Request&body=Hi,%20I'm%20interested%20in%20a%20consultation..."
+                        class="font-assistant text-light-pink focus:ring-light-pink mb-10 rounded-md bg-gradient-to-r from-[#383037] to-[#27232d] px-4 py-2.5 shadow-sm shadow-pink-200/50 transition hover:bg-gray-800 focus:ring-2 focus:outline-none"
+                    >
+                        Request Consultation
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Practice Areas -->
+        <section class="bg-blackout relative z-10 overflow-hidden px-6 py-16 text-white md:px-20">
+            <div
+                class="pointer-events-none absolute inset-0 z-[-1]"
+                style="
+                    background-image: repeating-linear-gradient(
+                        315deg,
+                        rgba(255, 255, 255, 0.08) 0px,
+                        rgba(255, 255, 255, 0.08) 1px,
+                        transparent 0px,
+                        transparent 50%
+                    );
+                    background-size: 10px 10px;
+                "
+            ></div>
+
+            <div class="relative z-10 mx-auto mb-14 max-w-7xl text-center">
+                <h2
+                    class="decoration-light-pink/30 font-assistant text-light-pink mb-4 text-4xl font-black tracking-wide uppercase underline decoration-[1px] underline-offset-10 md:text-5xl"
+                >
+                    Practice Areas
+                </h2>
+                <p
+                    class="text-muted mx-auto hidden max-w-xs text-xs md:block md:max-w-2xl md:text-base"
+                >
+                    With years of experience advocating for clients in complex legal matters, we are
+                    committed to delivering personalized solutions tailored to your unique needs.
+                </p>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+                <!-- Family Law -->
+                <article
+                    class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     data-aos="fade-up"
-                    data-aos-delay="300"
-                    class="ml-5 text-sm leading-snug text-gray-700 list-disc"
-                  >
-                    <li>Divorce</li>
-                    <li>Child Custody / Child Support</li>
-                    <li>Guardianship</li>
-                    <li>Modifications</li>
-                    <li>Paternity</li>
-                    <li>Restraining Orders</li>
-                    <li>Contested/uncontested cases</li>
-                    <li>Asset division, spousal support</li>
-                    <li>High-net-worth representation</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    data-aos-delay="100"
+                >
+                    <h3
+                        class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
+                    >
+                        Family Law
+                    </h3>
+                    <p class="text-ember text-muted text-sm leading-relaxed">
+                        Offering comprehensive services in divorce, custody, child support, and
+                        modifications, as well as expertise in guardianship and Care &amp;
+                        Protection cases involving the Department of Children and Families (DCF).
+                    </p>
+                </article>
 
-        <!-- Personal Injury Law Tab -->
+                <!-- Personal Injury -->
+                <article
+                    class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    <h3
+                        class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
+                    >
+                        Personal Injury
+                    </h3>
+                    <p class="text-ember text-muted text-sm leading-relaxed">
+                        Dedicated legal support for injury victims—fighting for the compensation and
+                        recovery you deserve.
+                    </p>
+                </article>
+
+                <!-- Housing Law -->
+                <article
+                    class="group rounded-xl border border-[#f6c2bf] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="250"
+                >
+                    <h3
+                        class="mb-3 text-xl font-semibold text-[#1f1f1f] underline decoration-dotted underline-offset-8 transition-colors duration-200 group-hover:text-[#f6c2bf]"
+                    >
+                        Housing Law
+                    </h3>
+                    <p class="text-ember text-muted text-sm leading-relaxed">
+                        Attorney Evelyn represents landlords in eviction and housing matters,
+                        including nonpayment, lease violations, and property recovery.
+                        Results-driven representation to help landlords maintain control of their
+                        property, recover unpaid rent, and resolve disputes efficiently.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- TABS PARENT -->
+        <section
+            x-data="{ tab: 'family' }"
+            :key="tab"
+            x-cloak
+            class="bg-off-white border-midnight border-t border-dotted px-6 py-20 text-[#4a3a2b] md:px-24"
+        >
+            <div class="mx-auto max-w-3xl">
+                <!-- Tabs -->
+                <div class="border-midnight mb-10 flex justify-center space-x-6 border-b pb-4">
+                    <template x-for="category in ['family', 'injury', 'housing']">
+                        <button
+                            @click="tab = category; $nextTick(() => window.AOS && AOS.refresh && AOS.refresh())"
+                            :class="tab === category ? 'text-midnight border-b-2 border-midnight' : 'text-gray-400'"
+                            class="pb-2 text-lg font-semibold capitalize transition-colors duration-300"
+                            type="button"
+                        >
+                            <span x-text="category + ' Law'"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <!-- Family Law Tab -->
+                <div
+                    x-show="tab === 'family'"
+                    x-cloak
+                    class="relative"
+                    data-aos="fade-right"
+                    data-aos-duration="700"
+                >
+                    <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+                        <!-- Image -->
+                        <div class="w-full flex-shrink-0 md:mt-6 md:w-1/3">
+                            <div
+                                class="border-midnight flex justify-center rounded-md border border-dotted bg-gray-100 p-2"
+                            >
+                                <img
+                                    src="src/img/family-law.jpg"
+                                    alt="Paper cut-out family, judge's gavel, and scales of justice"
+                                    class="h-auto max-w-full"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="w-full md:w-2/3">
+                            <h3
+                                data-aos="fade-up"
+                                data-aos-delay="100"
+                                class="text-midnight mb-2 text-2xl font-bold"
+                            >
+                                Family Law
+                            </h3>
+                            <p
+                                class="mb-6 max-w-md border-b border-dotted border-gray-300 pb-4 text-sm leading-relaxed text-gray-700"
+                            >
+                                Compassionate and strategic legal services tailored to your family’s
+                                needs—supporting you through transitions with clarity and care.
+                            </p>
+
+                            <div class="space-y-5">
+                                <div class="border-midnight border-l-4 pl-4">
+                                    <ul class="ml-5 list-disc text-sm leading-snug text-gray-700">
+                                        <li>Divorce (Contested &amp; Uncontested)</li>
+                                        <li>Legal Separation</li>
+                                        <li>Annulments</li>
+                                        <li>Child Custody &amp; Parenting Plans</li>
+                                        <li>Child Support</li>
+                                        <li>Spousal Support / Alimony</li>
+                                        <li>Property Division &amp; Asset Distribution</li>
+                                        <li>
+                                            Modification of Orders (Custody, Support, or Alimony)
+                                        </li>
+                                        <li>Contempt &amp; Enforcement Actions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Injury Law Tab -->
+                <div
+                    x-show="tab === 'injury'"
+                    x-cloak
+                    class="relative"
+                    data-aos="fade-right"
+                    data-aos-duration="700"
+                >
+                    <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+                        <!-- Image -->
+                        <div class="w-full flex-shrink-0 md:mt-6 md:w-1/3">
+                            <div
+                                class="border-midnight flex justify-center rounded-md border border-dotted bg-gray-100 p-2"
+                            >
+                                <img
+                                    src="src/img/accident.jpg"
+                                    alt="Accident and legal imagery"
+                                    class="h-auto max-w-full"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-midnight mb-2 text-2xl font-bold">Personal Injury</h3>
+                            <p
+                                class="mb-6 max-w-md border-b border-dotted border-gray-300 pb-4 text-sm leading-relaxed text-gray-700"
+                            >
+                                When an accident or injury disrupts your life, our firm is here to
+                                help you seek justice and fair compensation. We provide skilled
+                                representation for individuals who have been harmed due to the
+                                negligence or misconduct of others. Our personal injury services
+                                include:
+                            </p>
+
+                            <div class="space-y-5">
+                                <div class="border-midnight border-l-4 pl-4">
+                                    <ul class="ml-5 list-disc text-sm leading-snug text-gray-700">
+                                        <li>Motor Vehicle Accidents</li>
+                                        <li>Slip and Fall Accidents</li>
+                                        <li>Workplace Accidents</li>
+                                        <li>Medical Malpractice</li>
+                                        <li>Product Liability</li>
+                                        <li>Wrongful Death</li>
+                                        <li>Insurance Claims and Disputes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Housing Law Tab -->
+                <div
+                    x-show="tab === 'housing'"
+                    x-cloak
+                    class="relative"
+                    data-aos="fade-right"
+                    data-aos-duration="700"
+                >
+                    <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
+                        <!-- Image -->
+                        <div class="w-full flex-shrink-0 md:mt-6 md:w-1/3">
+                            <div
+                                class="border-midnight flex justify-center rounded-md border border-dotted bg-gray-100 p-2"
+                            >
+                                <img
+                                    src="src/img/housing-law2.jpg"
+                                    alt="Keys, lease, and housing forms"
+                                    class="h-auto max-w-full"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-midnight mb-2 text-2xl font-bold">Housing Law</h3>
+                            <p
+                                class="mb-6 max-w-md border-b border-dotted border-gray-300 pb-4 text-sm leading-relaxed text-gray-700"
+                            >
+                                Skilled representation to landlords in eviction and housing matters
+                                throughout Massachusetts. Attorney Evelyn understands the challenges
+                                property owners face and works to enforce landlord rights while
+                                ensuring compliance with the law. Landlords deserve strong, fair
+                                advocacy to protect their investment and maintain their rental
+                                property.
+                            </p>
+
+                            <div class="space-y-5">
+                                <div class="border-midnight border-l-4 pl-4">
+                                    <ul class="ml-5 list-disc text-sm leading-snug text-gray-700">
+                                        <li>Filing and prosecuting eviction cases</li>
+                                        <li>Drafting, reviewing, and enforcing lease agreements</li>
+                                        <li>Recovering possession of rental property</li>
+                                        <li>
+                                            Negotiating tenant settlements to avoid unnecessary
+                                            delays or costs
+                                        </li>
+                                        <li>Advising on landlord–tenant law compliance</li>
+                                        <li>Court procedures</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Headshot -->
+        <section
+            id="about-evelyn"
+            aria-labelledby="about-heading"
+            class="bg-navy relative overflow-hidden px-6 py-20 text-white md:py-24"
+        >
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center gap-8 rounded-2xl bg-[#282531] p-8 md:flex-row md:gap-10 md:p-10"
+                data-aos="fade-left"
+                data-aos-delay="200"
+            >
+                <!-- Headshot -->
+                <div class="relative flex justify-center md:order-2 md:w-2/5 md:justify-center">
+                    <img
+                        src="/src/img/headshot-round.png"
+                        alt="Attorney Tamara Evelyn headshot"
+                        class="border-light-pink h-36 w-36 rounded-full border-4 object-cover shadow-lg shadow-pink-200/50 md:h-65 md:w-65"
+                        loading="lazy"
+                        width="224"
+                        height="224"
+                    />
+                </div>
+
+                <!-- Text -->
+                <div class="md:order-1 md:w-3/5">
+                    <div
+                        class="text-off-white mx-auto mt-0 max-w-[65ch] text-center md:max-w-[55ch] md:text-left"
+                    >
+                        <h2
+                            id="about-heading"
+                            class="font-slab text-light-pink text-center text-2xl font-bold text-balance md:text-left md:text-4xl"
+                        >
+                            Attorney Tamara Evelyn
+                        </h2>
+
+                        <hr
+                            class="border-light-pink mt-4 mb-6 hidden w-full border-0 border-t border-dotted md:block"
+                        />
+
+                        <div
+                            class="mt-4 space-y-5 text-sm leading-[1.75] text-balance md:text-[1.02rem]"
+                        >
+                            <p>
+                                With a client-centered approach, I’m committed to understanding the
+                                unique challenges you face. Whether it’s a sensitive family matter
+                                or a life-altering injury, I listen first and tailor strategies to
+                                your needs—working diligently to deliver the best possible outcome
+                                while supporting you at every step.
+                            </p>
+
+                            <p>
+                                Evelyn Law assists clients with Child Custody, Child Support,
+                                Paternity Actions, Divorce, Spousal Support (alimony), Domestic
+                                Violence Restraining Orders, and Guardianship Petitions.
+                            </p>
+                        </div>
+
+                        <hr class="border-light-pink mt-6 w-full border-0 border-t border-dotted" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section
+            id="testimonials"
+            class="bg-blackout relative z-10 overflow-x-hidden px-0 py-15 text-white shadow-lg shadow-pink-200/50"
+        >
+            <div
+                class="pointer-events-none absolute inset-0 z-[-1]"
+                style="
+                    background-image: repeating-linear-gradient(
+                        315deg,
+                        rgba(255, 255, 255, 0.08) 0px,
+                        rgba(255, 255, 255, 0.08) 1px,
+                        transparent 0px,
+                        transparent 50%
+                    );
+                    background-size: 10px 10px;
+                "
+            ></div>
+
+            <div class="fade-on-scroll relative z-10 flex translate-y-4 justify-center opacity-0">
+                <h2
+                    class="decoration-light-pink/30 text-1xl text-light-pink inline-block text-center text-2xl font-black tracking-tight uppercase underline decoration-[1px] underline-offset-10 md:text-5xl"
+                >
+                    What Our Clients Say:
+                </h2>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-4 pt-12 md:px-20 md:pt-16">
+                <div class="relative mx-auto max-w-md">
+                    <!-- Track -->
+                    <div class="overflow-x-hidden">
+                        <div
+                            id="testimonialTrack"
+                            class="flex transition-transform duration-500 ease-in-out"
+                        >
+                            <!-- Slide 1 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-6 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        "After a long battle to gain custody of my granddaughter.
+                                        During a challenging time in the midst of covid. Going back
+                                        and forth to the court was discouraging. A close friend
+                                        recommended Attorney Tammy. It was the best choice I ever
+                                        made contacting Tammy. My son was having a hard time seeing
+                                        his daughter. Tammy, very diligent in her duty, fought hard
+                                        for us. Now my son has full custody of his daughter and I
+                                        say to God be the glory!<br /><br />
+                                        I highly recommend Attorney Tammy to anyone having similar
+                                        challenges. She will definitely work hard on your behalf!"
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — A. Walker
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-6 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        "Tamara went above and beyond for me to get custody of my
+                                        daughter back with me. For a year and a half, she
+                                        relentlessly worked with me on my case day and night. After
+                                        that time, I have my daughter back with me with her help. I
+                                        would highly recommend Tamara."
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — J. Kenney
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        "I spent months trying to go through the courts to get
+                                        custody of my daughter but kept hitting dead ends. After a
+                                        recommendation from another attorney, I hired Tammy. Once
+                                        Tammy got involved, things immediately started going my way.
+                                        I'm happy I had her in my corner. I needed someone who was
+                                        going to fight for me, and that's just what Tammy did. She
+                                        was available at all times, day and night, to answer any
+                                        questions I had. She prepared rigorously and had me ready
+                                        for anything that might happen. Without Tammy I would still
+                                        be fighting for custody of my daughter today. I will be
+                                        forever grateful for the work effort she put into my case. I
+                                        highly recommend her if you're in need of a family law
+                                        attorney."
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-3 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — N. Wood
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        "Anyone looking for a Family Law Attorney please consider
+                                        this amazing woman right here. Tamara is professional,
+                                        straight to the point, and knows how to handle difficult
+                                        people and situations while making her client feel
+                                        comfortable and confident. Dealing with my daughters
+                                        narcissistic father and constantly trying to prove his lies
+                                        false in court was beginning to weigh on me and make me feel
+                                        like a horrible mother; Tamara stepped in at the perfect
+                                        time to help me navigate this fiasco and got him to show the
+                                        courts his true colors and turn the outcome in my direction.
+                                        <br /><br />
+                                        Please consider Attorney Evelyn for your family law case."
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-3 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — K. McGrath
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        "For the past 2 years my fiance and I have been fighting to
+                                        regain custody of our 3 children. Tamara was appointed to us
+                                        and right from jump we saw how confident, professional and
+                                        tenacious she was. Her attitude and confidence was
+                                        infectious and made us feel a lot better about our trial.
+                                        She kept in constant contact throughout our trial and her
+                                        communication with us was exceptional. Tamara was always
+                                        well prepared and organized for all of our trial dates. She
+                                        called us last week and gave us the news we have been
+                                        waiting for. We won!!<br /><br />
+                                        Hearing her genuine excitement and enthusiasm brought me to
+                                        tears. We couldn't have done it without her."
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-3 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — R. Clapp
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 6 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        “I thank God for my lawyer, Mrs. Evelyn. It’s has been a
+                                        long battle, when things got harder, she lifted me up. Best
+                                        lawyer in the world. Today I have my 10 year old daughter
+                                        living with me. Custody I have. Two bedroom apartment for me
+                                        and my beautiful daughter. It’s not easy. Mrs. Evelyn told
+                                        me it would not be. I’m very blessed and wanted to thank her
+                                        for all her hard work. And prayers. Best lawyer in the
+                                        world. Thank you so much. God bless you and your family."
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-3 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — S. Victorian
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 7 -->
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
+                                >
+                                    <hr
+                                        class="border-light-pink my-4 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-off-white text-sm leading-7 italic">
+                                        “I can’t recommend Tamara highly enough. From the very
+                                        beginning, she was incredibly empathetic, taking the time to
+                                        truly understand my situation and making me feel heard and
+                                        supported. Legal matters can be overwhelming, but she broke
+                                        everything down in a way that was clear, simple, and easy to
+                                        follow. Her calm and compassionate approach made a stressful
+                                        time much more manageable. If you’re looking for someone who
+                                        combines professionalism with genuine care, she’s the one
+                                        you want by your side.”
+                                    </p>
+                                    <hr
+                                        class="border-light-pink my-3 w-full border-0 border-t border-dotted"
+                                    />
+                                    <p class="text-light-pink mt-2 text-right font-semibold">
+                                        — N. Sequeira
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="mt-5 space-x-4 text-center">
+                        <button
+                            id="prev"
+                            class="rounded bg-[#44475b] px-4 py-2 shadow-sm shadow-pink-200/80"
+                            type="button"
+                        >
+                            ←
+                        </button>
+                        <button
+                            id="next"
+                            class="rounded bg-[#44475b] px-4 py-2 shadow-sm shadow-pink-200/80"
+                            type="button"
+                        >
+                            →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-blackout text-off-white px-6 py-12 md:px-20">
+            <div
+                class="max-w-8xl mx-auto flex flex-col items-center justify-between gap-8 text-sm md:flex-row"
+            >
+                <!-- Firm Practices -->
+                <div class="flex items-center space-x-3">
+                    <div class="text-center md:text-left">
+                        <p
+                            class="border-light-pink border-b border-dotted p-1 text-base opacity-60"
+                        >
+                            Family Law
+                        </p>
+                        <p
+                            class="border-light-pink border-b border-dotted p-1 text-base opacity-60"
+                        >
+                            Personal Injury Law
+                        </p>
+                        <p
+                            class="border-light-pink border-b border-dotted p-1 text-base opacity-60"
+                        >
+                            Housing Law
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-1 text-center md:text-right">
+                    <p class="small-caps font-slab text-light-pink text-lg font-bold opacity-100">
+                        Tamara Evelyn, Esq.<br />
+                        Evelyn Law Office
+                    </p>
+                    <p class="opacity-60">71 Legion Pkwy, Suite 16</p>
+                    <p class="opacity-60">Brockton, MA, 02301-7225</p>
+                    <p class="opacity-60">
+                        Cell:
+                        <a href="tel:+15085219020" class="hover:text-light-pink">(508) 521-9020</a>
+                    </p>
+                    <p class="opacity-60">
+                        <a
+                            href="mailto:info.evelynlawoffice@gmail.com"
+                            class="hover:text-light-pink"
+                            >info.evelynlawoffice@gmail.com</a
+                        >
+                    </p>
+                </div>
+                <div
+                    class="border-light-pink w-33 border-b border-dotted opacity-60 md:hidden"
+                ></div>
+            </div>
+        </footer>
+
+        <!-- Legal Footer -->
         <div
-          x-show="tab === 'injury'"
-          x-cloak
-          class="relative"
-          data-aos="fade-right"
-          data-aos-duration="700"
+            class="text-off-white mx-auto max-w-5xl px-6 py-8 text-center text-[0.65rem] leading-relaxed opacity-80 md:max-w-5xl"
         >
-          <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-            <!-- Image -->
-            <div class="flex-shrink-0 w-full md:mt-6 md:w-1/3">
-              <div
-                class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight"
-              >
-                <img
-                  src="src/img/accident.jpg"
-                  alt="Paper cut-out family, judges gavel, scales of justice"
-                  class="h-auto max-w-full"
-                />
-              </div>
-            </div>
-
-            <!-- Text -->
-            <div class="w-full md:w-2/3">
-              <h3 class="mb-2 text-2xl font-bold text-midnight">Personal Injury</h3>
-              <p
-                class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted"
-              >
-                When an accident or injury disrupts your life, our firm is here to help you seek
-                justice and fair compensation. We provide skilled representation for individuals who
-                have been harmed due to the negligence or misconduct of others. Our personal injury
-                services include:
-              </p>
-
-              <div class="space-y-5">
-                <div class="pl-4 border-l-4 border-midnight">
-                  <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-                    <li>Motor Vehicle Accidents</li>
-                    <li>Slip and Fall Accidents</li>
-                    <li>Workplace Accidents</li>
-                    <li>Medical Malpractice</li>
-                    <li>Product Liability</li>
-                    <li>Wrongful Death</li>
-                    <li>Insurance Claims and Disputes</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+            <p class="mb-2 text-[.9rem]">© 2025 Evelyn Law Office. All rights reserved.</p>
+            <hr
+                class="border-light-pink/50 mx-auto my-3 w-full max-w-6xl border-0 border-t border-dotted"
+            />
+            <p class="hyphens-auto">
+                Disclaimer: The information you obtain at this site is not, nor is it intended to
+                be, legal advice. You should consult an attorney for advice regarding your
+                situation. We invite you to contact us and welcome your calls, letters, and
+                electronic mail. Contacting us does not create an attorney–client relationship.
+                Please do not send any confidential information to us until an attorney–client
+                relationship has been established.
+            </p>
         </div>
 
-        <!-- Immigration Law Tab -->
-        <div
-          x-show="tab === 'immigration'"
-          x-cloak
-          class="relative"
-          data-aos="fade-right"
-          data-aos-duration="700"
-        >
-          <div class="flex flex-col items-start gap-6 pt-8 md:flex-row-reverse">
-            <!-- Image -->
-            <div class="flex-shrink-0 w-full md:mt-6 md:w-1/3">
-              <div
-                class="flex justify-center p-2 bg-gray-100 border border-dotted rounded-md border-midnight"
-              >
-                <img
-                  src="src/img/immigration.JPG"
-                  alt="Paper cut-out family, judges gavel, scales of justice"
-                  class="h-auto max-w-full"
-                />
-              </div>
-            </div>
-
-            <!-- Text -->
-            <div class="w-full md:w-2/3">
-              <h3 class="mb-2 text-2xl font-bold text-midnight">Immigration Law</h3>
-              <p
-                class="max-w-md pb-4 mb-6 text-sm leading-relaxed text-gray-700 border-b border-gray-300 border-dotted"
-              >
-                We provide comprehensive immigration services to help clients navigate the complex
-                and often overwhelming U.S. immigration system. Whether you are seeking to reunite
-                with loved ones, secure legal status, or defend against removal, we are here to
-                provide the support and expertise you need.
-              </p>
-
-              <div class="space-y-5">
-                <div class="pl-4 border-l-4 border-midnight">
-                  <ul class="ml-5 text-sm leading-snug text-gray-700 list-disc">
-                    <li>Family-Based Immigration</li>
-                    <li>Naturalization and Citizenship</li>
-                    <li>Deferred Action and Humanitarian Relief</li>
-                    <li>Removal Defense</li>
-                    <li>Work Visas and Employment-Based Immigration</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Headshot Modal -->
-
-    <section id="about-evelyn" class="relative px-6 py-24 overflow-hidden text-white bg-blackout">
-      <div
-        class="flex flex-col-reverse items-center max-w-5xl gap-10 p-10 mx-auto border-dotted bg-navy rounded-2xl border-1 md:flex-row"
-        data-aos="fade-left"
-        data-aos-delay="200"
-      >
-        <!-- Text Block -->
-        <div class="text-justify md:w-1/2">
-          <h2 class="mb-4 text-xl font-bold text-center text-light-pink md:text-right md:text-4xl">
-            Attorney Tamara Evelyn
-          </h2>
-          <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-          <p class="mb-6 text-sm leading-relaxed text-off-white">
-            With a client-centered approach, I am deeply committed to understanding the unique
-            challenges you face. Whether it's a sensitive family law matter or a life-altering
-            injury, I take the time to listen and tailor my legal strategies to your needs. I work
-            diligently to deliver the best possible outcomes while offering support and guidance
-            throughout every step of the legal process.
-          </p>
-          <p class="text-sm leading-relaxed text-off-white md:text-sm">
-            Evelyn Law assists clients with a variety of family law matters including representation
-            for Child Custody, Child Support, Paternity Actions, Divorce, Spousal Support (alimony),
-            Domestic Violence Restraining Orders, and Guardianship Petitions.
-          </p>
-          <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-        </div>
-
-        <!-- Headshot container -->
-        <div class="relative flex justify-center md:w-1/2 md:justify-center">
-          <img
-            src="/src/img/headshot-round.png"
-            alt="Attorney Evelyn Headshot"
-            class="object-cover w-40 h-40 border-4 rounded-full shadow-lg border-light-pink shadow-pink-200/50 md:h-56 md:w-56"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Headshot Modal End -->
-
-    <!---Testimonial Section-->
-    <section
-      id="testimonials"
-      class="relative z-10 px-0 overflow-x-hidden text-white shadow-lg bg-blackout py-15 shadow-pink-200/50"
-    >
-      <!-- Background Grid -->
-      <div
-        class="pointer-events-none absolute inset-0 z-[-1]"
-        style="
-          background-image: repeating-linear-gradient(
-            315deg,
-            rgba(255, 255, 255, 0.08) 0px,
-            rgba(255, 255, 255, 0.08) 1px,
-            transparent 0px,
-            transparent 50%
-          );
-          background-size: 10px 10px;
-        "
-      ></div>
-
-      <!-- Heading -->
-      <div class="relative z-10 flex justify-center translate-y-4 opacity-0 fade-on-scroll">
-        <h2
-          class="inline-block text-2xl font-black tracking-tight underline underline-offset-10 decoration-[1px] decoration-light-pink/30 text-center uppercase text-1xl text-light-pink md:text-5xl"
-        >
-          What Our Clients Say:
-        </h2>
-      </div>
-
-      <!-- Content Container -->
-      <div class="relative px-4 pt-12 mx-auto max-w-7xl md:px-20 md:pt-16">
-        <div class="relative max-w-md mx-auto">
-          <!-- Testimonial Track -->
-          <div class="overflow-x-hidden">
-            <div id="testimonialTrack" class="flex transition-transform duration-500 ease-in-out">
-              <!-- Slide 1 -->
-              <div class="flex-shrink-0 w-full px-4">
-                <div
-                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
-                >
-                  <hr class="w-full my-6 border-0 border-t border-dotted border-light-pink" />
-                  <p class="text-sm italic leading-7 text-off-white">
-                    "After a long battle to gain custody of my granddaughter. During a challenging
-                    time in the midst of covid. Going back and forth to the court was discouraging.
-                    A close friend recommended Attorney Tammy. It was the best choice I ever made
-                    contacting Tammy. My son was having a hard time seeing his daughter. Tammy, very
-                    diligent in her duty, fought hard for us. Now my son has full custody of his
-                    daughter and I say to God be the glory!<br /><br />
-                    I highly recommend Attorney Tammy to anyone having similar challenges. She will
-                    definitely work hard on your behalf!"
-                  </p>
-                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-                  <p class="mt-2 font-semibold text-right text-light-pink">— A. Walker</p>
-                </div>
-              </div>
-
-              <!-- Slide 2 -->
-              <div class="flex-shrink-0 w-full px-4">
-                <div
-                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
-                >
-                  <hr class="w-full my-6 border-0 border-t border-dotted border-light-pink" />
-                  <p class="text-sm italic leading-7 text-off-white">
-                    "Tamara went above and beyond for me to get custody of my daughter back with me.
-                    For a year and a half, she relentlessly worked with me on my case day and night.
-                    After that time, I have my daughter back with me with her help. I would highly
-                    recommend Tamara."
-                  </p>
-                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-                  <p class="mt-2 font-semibold text-right text-light-pink">— J. Kenney</p>
-                </div>
-              </div>
-
-              <!-- Slide 3 -->
-              <div class="flex-shrink-0 w-full px-4">
-                <div
-                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
-                >
-                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-                  <p class="text-sm italic leading-7 text-off-white">
-                    "I spent months trying to go through the courts to get custody of my daughter
-                    but kept hitting dead ends. After a recommendation from another attorney, I
-                    hired Tammy. Once Tammy got involved, things immediately started going my way.
-                    I'm happy I had her in my corner. I needed someone who was going to fight for
-                    me, and that's just what Tammy did. She was available at all times, day and
-                    night, to answer any questions I had. She prepared rigorously and had me ready
-                    for anything that might happen. Without Tammy I would still be fighting for
-                    custody of my daughter today. I will be forever grateful for the work effort she
-                    put into my case. I highly recommend her if you're in need of a family law
-                    attorney."
-                  </p>
-                  <hr class="w-full my-3 border-0 border-t border-dotted border-light-pink" />
-                  <p class="mt-2 font-semibold text-right text-light-pink">— N. Wood</p>
-                </div>
-              </div>
-              <!-- Slide 4 -->
-              <div class="flex-shrink-0 w-full px-4">
-                <div
-                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
-                >
-                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-                  <p class="text-sm italic leading-7 text-off-white">
-                    "Anyone looking for a Family Law Attorney please consider this amazing woman right here. Tamara is professional, straight to the point, 
-                    and knows how to handle difficult people and situations while making her client feel comfortable and confident. 
-                    Dealing with my daughters narcissistic father and constantly trying to prove his lies false in court was 
-                    beginning to weigh on me and make me feel like a horrible mother; Tamara stepped in at the perfect time to help 
-                    me navigate this fiasco and got him to show the courts his true colors and turn the outcome in my direction. <br/><br/>
-                    Please consider Attorney Evelyn for your family law case."
-                  </p>
-                  <hr class="w-full my-3 border-0 border-t border-dotted border-light-pink" />
-                  <p class="mt-2 font-semibold text-right text-light-pink">— K. McGrath</p>
-                </div>
-              </div>
-              <!-- Slide 5 -->
-              <div class="flex-shrink-0 w-full px-4">
-                <div
-                  class="bg-navy mx-auto flex min-h-[500px] max-w-md flex-col justify-center rounded-2xl border border-white px-6 pt-6 pb-4 text-justify shadow-lg"
-                >
-                  <hr class="w-full my-4 border-0 border-t border-dotted border-light-pink" />
-                  <p class="text-sm italic leading-7 text-off-white">
-                    "For the past 2 years my fiance and I have been fighting to regain custody of our 3 children. 
-                    Tamara was appointed to us and right from jump we saw how confident, professional and tenacious she was. 
-                    Her attitude and confidence was infectious and made us feel a lot better about our trial. 
-                    She kept in constant contact throughout our trial and her communication with us was exceptional. 
-                    Tamara was always well prepared and organized for all of our trial dates. She called us last week and 
-                    gave us the news we have been waiting for. We won!!<br /><br />
-                    Hearing her genuine excitement and enthusiasm brought me to tears. We couldn't have done it without her."
-                  </p>
-                  <hr class="w-full my-3 border-0 border-t border-dotted border-light-pink" />
-                  <p class="mt-2 font-semibold text-right text-light-pink">— R. Clapp</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <div class="mt-5 space-x-4 text-center">
-          <button id="prev" class="rounded bg-[#44475b] px-4 py-2 shadow-sm shadow-pink-200/80">←</button>
-          <button id="next" class="rounded bg-[#44475b] px-4 py-2 shadow-sm shadow-pink-200/80">→</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer Section -->
-
-    <footer class="px-6 py-12 bg-blackout text-off-white md:px-20">
-      <div
-        class="flex flex-col items-center justify-between gap-8 mx-auto text-sm max-w-7xl md:flex-row"
-      >
-        <!-- Firm Name -->
-        <div class="flex items-center space-x-3">
-          
-          <div class="text-center md:text-left">
-            
-            <p class="p-1 text-base border-b border-dotted border-light-pink opacity-60">Family Law</p>
-            <p class="p-1 text-base border-b border-dotted border-light-pink opacity-60">Immigration Law</p>
-            <p class="p-1 text-base border-b border-dotted border-light-pink opacity-60">Personal Injury Law</p>
-          </div>
-        </div>
-
-        <!-- Contact Info -->
-        
-        <div class="space-y-1 text-center md:text-right">
-          <p class="text-lg font-bold opacity-100 small-caps font-slab text-light-pink">Evelyn Law Office</p>
-          <p class=" opacity-60">71 Legion Pkwy, Suite 16</p>
-          <p class=" opacity-60">Brockton, MA, 02301-7225</p>
-          <p class=" opacity-60">
-            Phone:
-            <a href="tel:15551234567" class="hover:text-light-pink">508-521-9020</a>
-          </p>
-          <!-- <p class="opacity-60">
-            Email:
-            <a href="mailto:hello@evelynlaw.com" class="hover:text-light-pink">hello@evelynlaw.com</a>
-          </p> -->
-        </div>
-        <div class="border-b border-dotted md:hidden w-33 border-light-pink opacity-60"></div>
-      </div>
-
-      
-
-      <!-- Legal Footer (Optional) -->
-      <div class="mt-8 text-xs text-center opacity-50">
-        <p>© 2025 Evelyn Law Office. All rights reserved.</p>
-        <!-- <p>
-          <a href="#" class="hover:text-light-pink">Privacy Policy</a> •
-          <a href="#" class="hover:text-light-pink">Terms of Service</a>
-        </p> -->
-      </div>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
-  </body>
+        <!-- App (Vite) -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
